@@ -5,7 +5,7 @@ import { Audio } from "@remotion/media";
 import React from "react";
 import { AbsoluteFill, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Music } from "./AutoInfo";
-import { Building, C, Car, HotCaptions, Person, rnd, Stars, Tag, Timer, Water, World } from "./flat";
+import { Building, C, Car, HotCaptions, Person, rnd, Siren, Stars, Tag, Timer, Water, World } from "./flat";
 import { smooth } from "./GimliRecon";
 import { clamp, Word } from "./infokit";
 
@@ -90,20 +90,24 @@ const IconSvg: React.FC<{ icon: Icon }> = ({ icon }) => {
   }
 };
 
-const Bubble: React.FC<{ x: number; y: number; icon: Icon; text?: string; k: number }> = ({ x, y, icon, text, k }) => (
-  <g transform={`translate(${x} ${y}) scale(${0.6 + 0.4 * k})`} opacity={k}>
-    <rect x={-80} y={-170} width={160} height={150} rx={26} fill="#F4F2EE" />
-    <path d="M-16 -22 L0 0 L16 -22 Z" fill="#F4F2EE" />
-    <g transform="translate(-50 -160)">
-      <IconSvg icon={icon} />
+const Bubble: React.FC<{ x: number; y: number; icon: Icon; text?: string; k: number }> = ({ x, y, icon, text, k }) => {
+  // подпись - внутри пузыря под значком, чтобы не наезжать на таблички
+  const h = text ? 196 : 150;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${0.6 + 0.4 * k})`} opacity={k}>
+      <rect x={-84} y={-h - 20} width={168} height={h} rx={26} fill="#F4F2EE" stroke="#C9CDD4" strokeWidth={3} />
+      <path d="M-16 -22 L0 0 L16 -22 Z" fill="#F4F2EE" />
+      <g transform={`translate(-50 ${-h - 10})`}>
+        <IconSvg icon={icon} />
+      </g>
+      {text ? (
+        <text x={0} y={-36} textAnchor="middle" fontFamily="Oswald" fontWeight={700} fontSize={32} fill="#1F2430">
+          {text.slice(0, 10)}
+        </text>
+      ) : null}
     </g>
-    {text ? (
-      <text x={0} y={-180} textAnchor="middle" fontFamily="Oswald" fontWeight={700} fontSize={40} fill="#fff" stroke="#000" strokeWidth={6} paintOrder="stroke">
-        {text}
-      </text>
-    ) : null}
-  </g>
-);
+  );
+};
 
 // ---------- места действия ----------
 const Pine: React.FC<{ x: number; y: number; s?: number; snow?: number; sway?: number }> = ({ x, y, s = 1, snow = 0, sway = 0 }) => (
@@ -133,6 +137,7 @@ const Backdrop: React.FC<{ env: Env; time: "night" | "day" | "dusk"; t: number; 
     </defs>,
     <rect key="sky" x={-2000} y={-2000} width={W + 4000} height={G + 2000} fill="url(#sky)" />,
   );
+  if (env === "beach") els.push(<rect key="hz" x={-2000} y={G - 40} width={2900} height={4} fill="#3A6E92" opacity={0.6} />);
   if (time === "night") els.push(<Stars key="st" w={W} />, <circle key="moon" cx={700} cy={420} r={70} fill="#E8E4D8" opacity={0.85} />);
   else if (time === "dusk") els.push(<circle key="sun" cx={900} cy={G - 260} r={140} fill="#FFB36B" opacity={0.85} />);
   else els.push(<circle key="sun" cx={900} cy={350} r={hz.type === "heat" ? 130 + 60 * hz.p : 110} fill="#FFE27A" />);
@@ -158,12 +163,46 @@ const Backdrop: React.FC<{ env: Env; time: "night" | "day" | "dusk"; t: number; 
     els.push(
       <path key="seabed" d={`M-2000 ${G + 420} L300 ${G + 90} L700 ${G + 14} L1260 ${G + 4} L1260 2600 L-2000 2600 Z`} fill="#7C6A48" />,
       <Water key="sea" level={G - 20 + 14 * recede} front={900 - 480 * recede} t={t} w={W} />,
-      <path key="sand" d={`M700 ${G + 6} L1260 ${G - 4} L1260 2400 L700 2400 Z`} fill={C.sand} />,
+      <path key="sand" d={`M700 ${G + 6} L1260 ${G - 4} L1260 2400 L700 2400 Z`} fill={time === "night" ? "#9C8A63" : C.sand} />,
     );
   if (env === "city" || env === "beach" || env === "highway") {
-    els.push(<rect key="road" x={env === "beach" ? 1260 : -2000} y={G - 6} width={W + 4000} height={10} fill="#2C3344" />);
-    els.push(...Array.from({ length: 50 }).map((_, k) => <rect key={`mk${k}`} x={-1000 + k * 120} y={G + 28} width={56} height={5} fill="#5B6274" />));
+    const r0 = env === "beach" ? 1260 : -2000;
+    els.push(
+      <rect key="earth" x={r0} y={G} width={W + 4000} height={1200} fill={time === "day" ? "#5B6170" : "#3A3E48"} />,
+      <rect key="asph" x={r0} y={G - 4} width={W + 4000} height={64} fill="#2E333E" />,
+      <rect key="curb" x={r0} y={G - 10} width={W + 4000} height={8} fill="#8A909B" />,
+      <rect key="curb2" x={r0} y={G + 60} width={W + 4000} height={8} fill="#6B717C" />,
+    );
+    els.push(...Array.from({ length: 60 }).map((_, k) => <rect key={`mk${k}`} x={r0 + 20 + k * 110} y={G + 26} width={54} height={5} rx={2} fill="#C9CCD2" opacity={0.75} />));
   }
+  if (env === "beach")
+    els.push(
+      <rect key="wall" x={1236} y={G - 14} width={28} height={90} fill="#6E737D" />,
+      <rect key="wall2" x={1232} y={G - 18} width={36} height={8} fill="#9AA0AA" />,
+      ...[760, 1080].map((x, k) => (
+        <g key={`palm${k}`} transform={`translate(${x} ${G + 10})`}>
+          <path d={`M0 0 Q${k ? -18 : 18} -140 ${k ? 10 : -10} -270`} stroke="#6B4A2B" strokeWidth={16} fill="none" strokeLinecap="round" />
+          {[-60, -25, 15, 50, 85, 130].map((a, j) => (
+            <path key={j} d={`M${k ? 10 : -10} -270 q${Math.cos((a * Math.PI) / 180) * 80} ${-30 + Math.abs(a) * 0.4} ${Math.cos((a * Math.PI) / 180) * 150} ${50 + Math.sin(t * 1.5 + j) * 4}`}
+              stroke="#2F6B43" strokeWidth={14} fill="none" strokeLinecap="round" />
+          ))}
+        </g>
+      )),
+      ...[880, 990].map((x, k) => (
+        <g key={`umb${k}`} transform={`translate(${x} ${G + 8})`}>
+          <rect x={-2} y={-120} width={4} height={120} fill="#D8D2C4" />
+          <path d="M-60 -110 Q0 -165 60 -110 Z" fill={k ? "#E63946" : "#F4A261"} />
+          <path d="M-20 -110 Q0 -158 20 -110" fill="#F4F2EE" opacity={0.85} />
+        </g>
+      )),
+      <g key="tower" transform={`translate(1160 ${G + 4})`}>
+        <path d="M-40 0 L-26 -150 M40 0 L26 -150 M-34 -60 L34 -60" stroke="#C9B37E" strokeWidth={8} />
+        <rect x={-46} y={-210} width={92} height={62} fill="#E63946" stroke="#7A1E26" strokeWidth={4} />
+        <rect x={-34} y={-198} width={68} height={26} fill="#2E3B4E" />
+        <path d="M-56 -210 L0 -240 L56 -210 Z" fill="#F4F2EE" />
+      </g>,
+      hz.type === "water" ? <Siren key="siren" x={1330} y={G - 10} t={t} on={hz.p < 0.3 ? 1 : 0} /> : null,
+    );
   if (env === "ice")
     els.push(
       <rect key="shore" x={2450} y={G - 6} width={W} height={12} fill="#EAF4FB" />,
@@ -364,7 +403,7 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
   // герой: идём по фразам и применяем действия
   const door = sh.x + sh.w / 2;
   const away = A.hazardFrom === "left" ? 1 : -1;
-  let hx = A.hero, hy = G, hidden = 0, crouch = 0, waving = false, walking = false;
+  let hx = A.hero, hy = G, hidden = 0, crouch = 0, waving = false, walking = false, dir = A.hazardFrom === "left" ? 1 : -1, running = false;
   const hs = spec.heroStart ?? "ground";
   if (hs !== "ground") hx = door;
   if (hs === "top") hy = G - (sh.kind === "house" ? 0 : sh.h);
@@ -377,8 +416,8 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
     const k = smooth(t, [s[i] + 0.2, Math.max(s[i] + 0.8, s[i + 1] - 0.2)], [0, 1]);
     if (t < s[i]) break;
     const moving = k > 0 && k < 1;
-    if (a === "walk_to_shelter") { hx = hx + (door - hx) * k; walking = walking || moving; }
-    else if (a === "run_away") { hx = hx + away * 520 * k; walking = walking || moving; if (k > 0) hidden = Math.min(hidden, 1 - k); }
+    if (a === "walk_to_shelter") { if (moving) { dir = door >= hx ? 1 : -1; running = Math.abs(door - hx) > 500; } hx = hx + (door - hx) * k; walking = walking || moving; }
+    else if (a === "run_away") { if (moving) { dir = away; running = true; } hx = hx + away * 520 * k; walking = walking || moving; if (k > 0) hidden = Math.min(hidden, 1 - k); }
     else if (a === "climb_shelter") {
       hx = hx + (door - hx) * Math.min(1, k * 4);
       hy = G - (sh.kind === "house" ? 0 : sh.h) * smooth(k, [0.25, 1], [0, 1]);
@@ -419,8 +458,9 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
     const [x, y] = target(sh2, hx, hy);
     const z = zoomOf(sh2.zoom);
     const yAdj = sh2.focus === "hero" || sh2.focus === "crowd" || sh2.focus === "hazard" ? Math.min(y, G - 300 / z) : y;
-    keys.push({ t: s[i] + (i ? 0.9 : 0), x, y: yAdj, z });
-    keys.push({ t: Math.max(s[i] + 1.0, s[i + 1] - 0.05), x, y: yAdj, z: z * 1.06 });
+    const yy = yAdj - (sh2.tag ? 60 : 0); // есть табличка - камера чуть выше, чтобы она не уходила за край
+    keys.push({ t: s[i] + (i ? 0.9 : 0), x, y: yy, z });
+    keys.push({ t: Math.max(s[i] + 1.0, s[i + 1] - 0.05), x, y: yy, z: z * 1.06 });
   }
   keys.push({ ...keys[keys.length - 1], t: p.total });
   // тряска при землетрясении
@@ -450,13 +490,14 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
               const cl = typeof spec.crowd === "number" ? s[Math.min(n - 1, spec.crowd)] : ht0 - 2;
               const k2 = smooth(t, [cl, cl + 4], [0, 1]);
               return (
-                <Person key={k} x={A.crowd + k * 55 + away * k2 * (300 + k * 70)} y={G} s={0.8} color={["#5DADE2", "#F7DC6F", "#AF7AC5", "#58D68D", "#EC7063", "#F5B041", "#48C9B0"][k]}
-                  walk={k2 > 0 && k2 < 1 ? t * 10 + k : 0} />
+                <Person key={k} x={A.crowd + k * 60 + away * k2 * (300 + k * 70)} y={G} s={0.95} color={["#5DADE2", "#F7DC6F", "#AF7AC5", "#58D68D", "#EC7063", "#F5B041", "#48C9B0"][k]}
+                  walk={k2 > 0 && k2 < 1 ? t * 11 + k * 1.3 : 0} run dir={k2 > 0 && k2 < 1 ? away : k % 2 ? 1 : -1} seed={k + 7} wave={k2 <= 0 && k % 3 === 0 ? t * 4 + k : 0} />
               );
             })
           : null}
-        <g opacity={1 - hidden} transform={crouch > 0 ? `translate(0 ${crouch * 30})` : undefined}>
-          <Person x={hx} y={hy - crouch * 30} color={spec.hero.color ?? "#FF8C42"} s={1.05} walk={walking ? t * 9 : 0} wave={waving ? t * 6 : 0} />
+        <g opacity={1 - hidden}>
+          <Person x={hx} y={hy} color={spec.hero.color ?? "#FF8C42"} s={1.15} walk={walking ? t * (running ? 11 : 8) : 0} run={running && walking} dir={dir}
+            wave={waving ? t * 6 : 0} seed={4} crouch={crouch} />
         </g>
         <HazardFx hz={hz} t={t} env={env} heroX={hx} />
         {spec.shots.map((sh2, i) => {
@@ -465,8 +506,8 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
           const [x, y] = target(sh2, hx, hy);
           return (
             <g key={i}>
-              {sh2.tag ? <Tag x={x} y={y - (sh2.focus === "hero" ? 250 : 300)} text={sh2.tag} color={TAGC[sh2.tagColor ?? "yellow"]} k={k} /> : null}
-              {sh2.icon ? <Bubble x={hx + 150} y={hy - 70} icon={sh2.icon} text={sh2.iconText} k={k} /> : null}
+              {sh2.tag ? <Tag x={x} y={sh2.icon ? Math.min(y - (sh2.focus === "hero" ? 250 : 300), hy - 300) : y - (sh2.focus === "hero" ? 250 : 300)} text={sh2.tag} color={TAGC[sh2.tagColor ?? "yellow"]} k={k} /> : null}
+              {sh2.icon ? <Bubble x={hx + 115} y={hy - 20} icon={sh2.icon} text={sh2.iconText} k={k} /> : null}
             </g>
           );
         })}
