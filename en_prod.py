@@ -238,6 +238,11 @@ def dedupe(text):
     return " ".join(out)
 
 
+def tiktok(text):
+    """Подпись TikTok: без #shorts (это тег YouTube) и без повторов."""
+    return dedupe(re.sub(r"\s*#shorts", "", text, flags=re.I))
+
+
 def credits(music):
     if not music:
         return ""
@@ -276,8 +281,8 @@ def build_morning(state):
     out, music = make_video(vid, d["lines"], "Scenario", spec=spec, mood="tense")
     tags = " ".join(h if h.startswith("#") else "#" + h for h in d.get("hashtags", [])[:5])
     item = {"id": vid, "slot": "morning", "kind": "survival", "title": d["title"] if "part" in d["title"].lower() else d["title"] + f" (Part {part})",
-            "yt": f"{d['description']}\n\nBased on official safety guidance: {topic['sources']}. Not professional advice.\n\n{credits(music)}\n\n{tags} #shorts",
-            "tiktok": dedupe(f"{d['title']} {tags} #survival #fyp"), "file": str(out)}
+            "yt": f"{d['description']}\n\nBased on official safety guidance: {topic['sources']}. Not professional advice.\n\n{credits(music)}\n\n" + dedupe(f"{tags} #shorts"),
+            "tiktok": tiktok(f"{d['title']} What would you do? {tags} #survival #fyp"), "file": str(out)}
     if part == 1:
         acts = [s.get("hero") for s in d["shots"] if s.get("hero") in ("walk_to_shelter", "climb_shelter", "enter_shelter", "run_away")]
         end = {"climb_shelter": "top", "enter_shelter": "inside", "walk_to_shelter": "door"}.get(acts[-1] if acts else "", start)
@@ -336,8 +341,8 @@ def build_evening(state):
     state.pop("draft_evening", None)
     state.pop("draft_plan", None)
     return {"id": vid, "slot": "evening", "kind": "story", "title": d["title"],
-            "yt": f"{d['description']}\n\nSources: {st['sources']}.\n\n{credits(music)}\n\n{tags} #shorts",
-            "tiktok": dedupe(f"{d['title']} {tags} #truestory #fyp"), "file": str(out)}
+            "yt": f"{d['description']}\n\nSources: {st['sources']}.\n\n{credits(music)}\n\n" + dedupe(f"{tags} #shorts"),
+            "tiktok": tiktok(f"{d['title']} {tags} #truestory #fyp"), "file": str(out)}
 
 
 def make_video(vid, lines, comp, spec=None, scenes=None, bg=None, accent=None, tag=None, mood="tense"):
