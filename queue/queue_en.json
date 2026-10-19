@@ -1,12 +1,23 @@
 [
  {
   "id": "en_tsunami_p1",
-  "slot": "morning",
+  "slot": "evening",
   "kind": "survival",
   "title": "Tsunami Warning at Night: How to Survive the Surge (Part 1)",
   "yt": "A tsunami siren rings out on a dark beach. Max must follow strict survival rules to beat the rushing water.\n\nBased on official safety guidance: NOAA/NWS tsunami safety; Honolulu vertical evacuation policy; Japan Cabinet Office 2011 evacuation survey. Not professional advice.\n\nMusic: \"I Can Feel it Coming\" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0.\n\n#survival #tsunami #emergency #preparedness #storytime #shorts",
-  "tiktok": "Tsunami Warning at Night: How to Survive the Surge #survival #tsunami #emergency #preparedness #storytime #fyp",
-  "tg_video": "BAACAgIAAxkDAAIDN2rWLUl3R1EXtyqEbsurmA_qbPLXAAImpQACjyGxShQRnrt984x3PQQ",
+  "tiktok": "Tsunami Warning at Night: How to Survive the Surge What would you do? #survival #tsunami #emergency #preparedness #storytime #fyp",
+  "tg_video": "BAACAgIAAxkDAAIDSmrWRhtpvpto1jYuX31F2xyScWWIAAJxpgACjyGxSuswIzhcpzkTPQQ",
+  "date": "2026-10-19",
+  "posted_manually": true
+ },
+ {
+  "id": "en_tsunami_p2",
+  "slot": "morning",
+  "kind": "survival",
+  "title": "Tsunami Survival Part 2: Locked on the Roof",
+  "yt": "Max is trapped on a rooftop during a terrifying tsunami night. Watch how he survives using official safety rules.\n\nBased on official safety guidance: NOAA/NWS tsunami safety; Honolulu vertical evacuation policy; Japan Cabinet Office 2011 evacuation survey. Not professional advice.\n\nMusic: \"Darkling\" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0.\n\n#survival #tsunami #preparedness #storytime #shorts",
+  "tiktok": "Tsunami Survival Part 2: Locked on the Roof What would you do? #survival #tsunami #preparedness #storytime #shorts #fyp",
+  "tg_video": "BAACAgIAAxkDAAIDS2rWRmN-ROpP1rRvX1MTbOrvXzn9AAJ5pgACjyGxSkvKS_3Cg5qLPQQ",
   "date": "2026-10-20"
  },
  {
@@ -20,6 +31,16 @@
   "date": "2026-10-20"
  },
  {
+  "id": "en_lost_forest_p1",
+  "slot": "morning",
+  "kind": "survival",
+  "title": "Lost In A Forest At Night Follow This Survival Rule (Part 1)",
+  "yt": "Mark is lost in a freezing forest as snow falls and night approaches. He must follow strict survival rules to stay alive.\n\nBased on official safety guidance: US National Park Service, US Forest Service hiking safety; Hug-a-Tree program. Not professional advice.\n\nMusic: \"I Can Feel it Coming\" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0.\n\n#survival #forest #lostinthewild #outdoor #story #shorts",
+  "tiktok": "Lost In A Forest At Night Follow This Survival Rule What would you do? #survival #forest #lostinthewild #outdoor #story #fyp",
+  "tg_video": "BAACAgIAAxkDAAIDTGrWRqCIn6qVgrbtwKLTe09Pir3MAAKBpgACjyGxStAtEFn8jY6kPQQ",
+  "date": "2026-10-21"
+ },
+ {
   "id": "en_story_hudson",
   "slot": "evening",
   "kind": "story",
@@ -30,23 +51,13 @@
   "date": "2026-10-21"
  },
  {
-  "id": "en_tsunami_p2",
+  "id": "en_lost_forest_p2",
   "slot": "morning",
   "kind": "survival",
-  "title": "Tsunami Survival Part 2: Locked on the Roof",
-  "yt": "Max is trapped on a rooftop during a terrifying tsunami night. Watch how he survives using official safety rules.\n\nBased on official safety guidance: NOAA/NWS tsunami safety; Honolulu vertical evacuation policy; Japan Cabinet Office 2011 evacuation survey. Not professional advice.\n\nMusic: \"Darkling\" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0.\n\n#survival #tsunami #preparedness #storytime #shorts #shorts",
-  "tiktok": "Tsunami Survival Part 2: Locked on the Roof #survival #tsunami #preparedness #storytime #shorts #fyp",
-  "tg_video": "BAACAgIAAxkDAAIDOmrWMASH29XZ_pT0AAGR1zol22icSgACX6UAAo8hsUpMPxVyDKbYfz0E",
-  "date": "2026-10-21"
- },
- {
-  "id": "en_lost_forest_p1",
-  "slot": "morning",
-  "kind": "survival",
-  "title": "Lost In A Forest At Night Follow This Survival Rule (Part 1)",
-  "yt": "Mark is lost in a freezing forest as snow falls and night approaches. He must follow strict survival rules to stay alive.\n\nBased on official safety guidance: US National Park Service, US Forest Service hiking safety; Hug-a-Tree program. Not professional advice.\n\nMusic: \"I Can Feel it Coming\" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0.\n\n#survival #forest #lostinthewild #outdoor #story #shorts",
-  "tiktok": "Lost In A Forest At Night Follow This Survival Rule #survival #forest #lostinthewild #outdoor #story #fyp",
-  "tg_video": "BAACAgIAAxkDAAIDPmrWMfVt01EFuNivYm9pTD-a8oyEAAKLpQACjyGxShO5SFYazGHfPQQ",
+  "title": "Lost In Forest Part 2: What Is Inside The Cabin?",
+  "yt": "Mark faces a terrifying mystery at the cabin while following official survival rules in the freezing snow.\n\nBased on official safety guidance: US National Park Service, US Forest Service hiking safety; Hug-a-Tree program. Not professional advice.\n\nMusic: \"Darkling\" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0.\n\n#survival #lostinthewoods #outdoors #storytime #thriller #shorts",
+  "tiktok": "Lost In Forest Part 2: What Is Inside The Cabin? What would you do? #survival #lostinthewoods #outdoors #storytime #thriller #fyp",
+  "tg_video": "BAACAgIAAxkDAAIDTWrWRt9mLYaf6f_dNyCz-u4Ohv6uAAKIpgACjyGxSgM5xK_3dJzRPQQ",
   "date": "2026-10-22"
  },
  {
@@ -58,15 +69,5 @@
   "tiktok": "The Girl Who Fell Two Miles From The Sky And Survived #survival #truecrime #history #storytime #mindblowing #truestory #fyp",
   "tg_video": "BAACAgIAAxkDAAIDPGrWMV6r9bonCnL7ube3WiX0VUcUAAKCpQACjyGxSpUKqZL6DfytPQQ",
   "date": "2026-10-22"
- },
- {
-  "id": "en_lost_forest_p2",
-  "slot": "morning",
-  "kind": "survival",
-  "title": "Lost In Forest Part 2: What Is Inside The Cabin?",
-  "yt": "Mark faces a terrifying mystery at the cabin while following official survival rules in the freezing snow.\n\nBased on official safety guidance: US National Park Service, US Forest Service hiking safety; Hug-a-Tree program. Not professional advice.\n\nMusic: \"Darkling\" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0.\n\n#survival #lostinthewoods #outdoors #storytime #thriller #shorts",
-  "tiktok": "Lost In Forest Part 2: What Is Inside The Cabin? #survival #lostinthewoods #outdoors #storytime #thriller #fyp",
-  "tg_video": "BAACAgIAAxkDAAIDP2rWMjCLxGeq_JBvIq-TkDihr-CwAAKNpQACjyGxSgUvjSldqYgpPQQ",
-  "date": "2026-10-23"
  }
 ]
