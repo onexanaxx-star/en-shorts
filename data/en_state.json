@@ -1,56 +1,28 @@
 {
- "topic": 2,
+ "topic": 3,
  "part": 2,
- "story": 3,
+ "story": 5,
  "part1": {
   "lines": [
-   "If the power grid fails tonight, do not panic and follow these vital survival rules.",
-   "The city lights suddenly die across the entire skyline, plunging millions into total darkness.",
-   "Marcus stands on the downtown sidewalk as panic spreads quickly through the massive crowd.",
-   "He remembers the rules and knows he must act fast before the danger grows worse.",
-   "One. Store water early by filling every container and the bathtub while taps still work.",
-   "Marcus moves quickly to complete this urgent task in his small apartment before pressure drops.",
-   "Two. Keep the fridge and freezer closed to preserve your food supply safely.",
-   "A closed fridge keeps food safe about 4 hours, and a full freezer about 48 hours.",
-   "Three. Use flashlights, not candles, because candles cause devastating house fires during blackouts.",
-   "Marcus grabs his trusty flashlight and checks the batteries to ensure they work properly.",
-   "He never runs a generator, grill, or camp stove indoors because carbon monoxide kills silently.",
-   "Now Marcus walks to shelter at the tall office building to find a safe location.",
-   "The streets are pitch black and navigating without light becomes extremely dangerous for everyone.",
-   "Marcus reaches the heavy glass doors of the towering office building and steps inside.",
-   "It was the absolute safest plan for surviving the catastrophic night of darkness.",
-   "There was just one problem when the heavy security doors locked automatically from behind him."
+   "If you get trapped in a blizzard on the highway, do not try to walk away.",
+   "Cole sits stranded in his car as a massive wall of white snow swallows the road.",
+   "Heavy snow piles against the doors while the freezing night temperature drops rapidly below zero.",
+   "Rescuers will search the highway, but Cole must survive the next 12 freezing dark hours.",
+   "One. Stay with the car because it provides shelter and makes you easier to find.",
+   "Walking out into blinding whiteout conditions guarantees you will become lost and freeze to death.",
+   "Two. Clear snow from your exhaust pipe before you ever turn on the vehicle engine.",
+   "A blocked exhaust pipe fills your closed cabin with lethal, odorless carbon monoxide gas quickly.",
+   "Run the engine about 10 minutes each hour for heat while cracking a window slightly.",
+   "Three. Tie a bright cloth to your antenna or car door to signal passing crews.",
+   "Turn on your inside dome light at night so emergency rescue teams can spot you.",
+   "Cole secures his bright cloth, clears the pipe, and settles in under his warm jacket.",
+   "He runs the engine for 10 minutes, cracks the window, and checks his dashboard clock.",
+   "It was the perfect survival plan, and rescue crews were finally approaching down the highway.",
+   "There was just one massive problem that Cole did not notice until this very second.",
+   "A heavy snowplow is barreling down his exact lane, blind to his buried, silent car."
   ],
-  "cliffhanger": "The heavy security doors lock automatically behind Marcus, trapping him inside with an unknown threat.",
-  "hero": "Marcus",
+  "cliffhanger": "A massive snowplow is speeding directly toward Cole's buried car without seeing it.",
+  "hero": "Cole",
   "end": "inside"
- },
- "draft_evening": {
-  "lines": [
-   "Twelve boys and their young coach walk into a dark cave and vanish without a single trace.",
-   "On 23 June 2018, sudden heavy rain floods every single exit and traps them deep inside.",
-   "Days pass in total darkness while water rises and families wait anxiously outside the flooded gates.",
-   "On 2 July, two British divers finally find the starving group sitting silently on a rock shelf.",
-   "They are located about two kilometers from the entrance with no way to swim out alone.",
-   "Rescuers make a desperate plan to give each boy a full-face mask and heavy sedatives.",
-   "Experienced divers guide the unconscious children one by one through narrow and completely flooded underground tunnels.",
-   "Between 8 July and 10 July, this risky underwater operation brings every single trapped person out.",
-   "Around 10,000 people work together to pull off this impossible rescue against all odds.",
-   "Former Thai Navy SEAL Saman Kunan makes the ultimate sacrifice and loses his life during operations.",
-   "Another brave SEAL named Beirut Pakbara also dies in 2019 from an infection caught down there.",
-   "This massive team effort saves every trapped child and their coach from the flooded caves.",
-   "Human courage pushes past extreme limits to bring the Wild Boars football team back home.",
-   "How would you stay brave in total darkness for ten days while waiting for rescue?"
-  ],
-  "title": "The Impossible Thai Cave Rescue That Shocked The Entire World",
-  "description": "How 12 boys and their coach survived deep inside a flooded cave in 2018.",
-  "hashtags": [
-   "#thailand",
-   "#caverescue",
-   "#survival",
-   "#truehistory",
-   "#documentary"
-  ],
-  "mood": "epic"
  }
 }
