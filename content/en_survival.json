@@ -1,0 +1,229 @@
+[
+ {
+  "id": "tsunami",
+  "title": "Tsunami siren on the beach",
+  "env": "beach",
+  "hazard": "water",
+  "time": "night",
+  "advice": [
+   "Do not drive: roads out of coastal towns jam fast (Japan 2011 survey: about a third of evacuees got stuck in traffic)",
+   "If the sea suddenly pulls back far from the shore, a wave is coming - move immediately",
+   "Go up if you cannot go far: a strong reinforced concrete or steel building, above the 4th floor",
+   "The first wave is often not the biggest; waves can keep coming for hours - stay up until officials say it is safe"
+  ],
+  "sources": "NOAA/NWS tsunami safety; Honolulu vertical evacuation policy; Japan Cabinet Office 2011 evacuation survey",
+  "order": "move_first",
+  "moves": "walk_to_shelter, then climb_shelter (the hotel roof); the wave hits only after the hero is up"
+ },
+ {
+  "id": "lost_forest",
+  "title": "Lost in a forest as night falls",
+  "env": "forest",
+  "hazard": "snow",
+  "time": "dusk",
+  "advice": [
+   "Stop as soon as you realize you are lost - most people make it worse by walking further (S.T.O.P.: Stop, Think, Observe, Plan)",
+   "Stay put near where you are: searchers start from your last known point",
+   "Make yourself visible and audible: bright clothing in the open, three whistle blasts is a distress signal",
+   "Before dark, get out of the wind and off the cold ground: branches or leaves under you, shelter close to a tree or rock"
+  ],
+  "sources": "US National Park Service, US Forest Service hiking safety; Hug-a-Tree program",
+  "order": "hazard_first",
+  "moves": "the hero stays put near the trees (crouch / wave to be seen); do NOT walk to the cabin far away - staying put is the advice"
+ },
+ {
+  "id": "blackout_city",
+  "title": "City-wide blackout for days",
+  "env": "city",
+  "hazard": "dark",
+  "time": "night",
+  "advice": [
+   "Keep the fridge and freezer closed: a closed fridge keeps food safe about 4 hours, a full freezer about 48 hours",
+   "Never run a generator, grill or camp stove indoors or in a garage - carbon monoxide kills silently",
+   "Store water early: fill containers and the bathtub while taps still work",
+   "Use flashlights, not candles - candles cause house fires during blackouts"
+  ],
+  "sources": "Ready.gov power outages; USDA food safety; CDC carbon monoxide",
+  "order": "hazard_first",
+  "moves": "lights go out first (use fx lights_off), then the hero walks_to_shelter (home building) and enter_shelter"
+ },
+ {
+  "id": "car_blizzard",
+  "title": "Stuck in your car in a blizzard",
+  "env": "highway",
+  "hazard": "snow",
+  "time": "night",
+  "advice": [
+   "Stay with the car - it is shelter and easier for rescuers to find than a person in the snow",
+   "Run the engine about 10 minutes each hour for heat, with a window cracked a little",
+   "Clear snow from the exhaust pipe first - a blocked pipe fills the car with carbon monoxide",
+   "Tie a bright cloth to the antenna or door; turn on the inside light at night so crews can see you"
+  ],
+  "sources": "Ready.gov winter storms; National Weather Service winter safety",
+  "order": "hazard_first",
+  "moves": "the hero starts inside the car (heroStart inside); snow builds up; the hero stays with the car",
+  "heroStart": "inside"
+ },
+ {
+  "id": "thin_ice",
+  "title": "Falling through the ice",
+  "env": "ice",
+  "hazard": "ice",
+  "time": "day",
+  "advice": [
+   "The first minute is cold shock: do not panic, control your breathing (the 1-10-1 rule: 1 minute to breathe, about 10 minutes of useful movement, about 1 hour before you pass out from cold)",
+   "Turn back toward the direction you came from - that ice held your weight",
+   "Put your arms flat on the ice, kick your legs to get your body horizontal, and pull yourself out",
+   "Do not stand up - roll away from the hole to spread your weight, then crawl to shore"
+  ],
+  "sources": "Minnesota DNR ice safety; Cold Water Boot Camp (1-10-1 rule)",
+  "order": "hazard_first",
+  "moves": "the ice cracks under the hero first; then the hero crouches (rolls), then walk_to_shelter = the shore"
+ },
+ {
+  "id": "quake_home",
+  "title": "Earthquake hits while you are at home",
+  "env": "home",
+  "hazard": "quake",
+  "time": "night",
+  "advice": [
+   "Drop, Cover, Hold On: drop to your hands and knees, cover your head and neck under a sturdy table, hold on",
+   "Do not run outside during shaking - most injuries come from falling objects and debris near buildings",
+   "Stay away from windows, glass and tall furniture",
+   "After shaking stops, expect aftershocks; check for gas smell and leave if you smell it"
+  ],
+  "sources": "Ready.gov earthquakes; USGS; Great ShakeOut",
+  "order": "hazard_first",
+  "moves": "the hero starts inside the house; shaking first; then crouch (drop, cover, hold on); do NOT run outside",
+  "heroStart": "inside"
+ },
+ {
+  "id": "wildfire_road",
+  "title": "Wildfire blocks the road out",
+  "env": "forest",
+  "hazard": "fire",
+  "time": "dusk",
+  "advice": [
+   "Leave early when told to evacuate - waiting is the most dangerous choice",
+   "If trapped in a car: park in an area clear of vegetation, close windows and vents, keep the engine running",
+   "Get down on the floor and cover yourself with a wool blanket or jacket; the car is safer than running on foot",
+   "If on foot, head for ground with little fuel: a road, a rocky area, or already burned ground"
+  ],
+  "sources": "Ready.gov wildfires; NFPA; CAL FIRE Ready Set Go",
+  "order": "move_first",
+  "moves": "the hero runs away from the fire to bare ground (run_away), then crouch; do NOT enter the wooden cabin"
+ },
+ {
+  "id": "tornado_home",
+  "title": "Tornado warning at home",
+  "env": "home",
+  "hazard": "storm",
+  "time": "dusk",
+  "advice": [
+   "Go to the basement, or an interior room on the lowest floor with no windows",
+   "Put as many walls as possible between you and the outside",
+   "Cover your head and neck with your arms, a mattress or helmets",
+   "Mobile homes and cars are not safe - get to a sturdy building"
+  ],
+  "sources": "National Weather Service tornado safety; Ready.gov",
+  "order": "hazard_first",
+  "moves": "the hero enters the house and goes to the basement (enter_shelter), then crouch"
+ },
+ {
+  "id": "desert_car",
+  "title": "Car breaks down in the desert",
+  "env": "desert",
+  "hazard": "heat",
+  "time": "day",
+  "advice": [
+   "Stay with the car: a vehicle is much easier to spot than a person",
+   "Rest in the shade during the hottest hours; move, if you must, early morning or evening",
+   "Drink the water you have when thirsty - rationing water while you overheat does not help",
+   "Signal: raise the hood, use a mirror to flash sunlight, keep your phone for when you get signal"
+  ],
+  "sources": "US National Park Service desert safety (Death Valley); Ready.gov extreme heat",
+  "order": "hazard_first",
+  "moves": "the hero walks to the rock shade (walk_to_shelter), stays near it, waves to signal"
+ },
+ {
+  "id": "avalanche",
+  "title": "Caught in an avalanche",
+  "env": "mountain",
+  "hazard": "snow",
+  "time": "day",
+  "advice": [
+   "Try to get off the slab to the side as it starts",
+   "If you are swept away, fight to stay on the surface - swimming motions, dump your heavy pack if you can",
+   "As the snow slows, push one hand up toward the surface and cup your other arm in front of your face for an air pocket",
+   "Rescue gear matters: a beacon, probe and shovel - most buried people need to be dug out within about 15 minutes"
+  ],
+  "sources": "Avalanche.org (US avalanche centers); Utah Avalanche Center",
+  "order": "hazard_first",
+  "moves": "the snow hits first; the hero crouches (air pocket), then waves a hand"
+ },
+ {
+  "id": "house_fire",
+  "title": "Fire alarm wakes you at night",
+  "env": "home",
+  "hazard": "fire",
+  "time": "night",
+  "advice": [
+   "Get low and go: smoke rises, the cleanest air is near the floor",
+   "Feel the door with the back of your hand before opening; if it is hot, use another way out",
+   "Close doors behind you to slow the fire",
+   "Get out, stay out, call for help from outside - never go back in"
+  ],
+  "sources": "NFPA; American Red Cross home fire safety",
+  "order": "move_first",
+  "moves": "the hero starts inside the house (heroStart inside), crouches low (smoke), then run_away out of the house; never goes back",
+  "heroStart": "inside"
+ },
+ {
+  "id": "flash_flood",
+  "title": "Flash flood on the road",
+  "env": "highway",
+  "hazard": "water",
+  "time": "night",
+  "advice": [
+   "Turn Around, Don't Drown: never drive into flooded roads",
+   "About 12 inches (30 cm) of moving water can carry away most cars, and 6 inches can knock an adult off their feet",
+   "If water surrounds the car and is rising, get out and move to higher ground if you safely can",
+   "Flood water hides holes, washed-out roads and debris"
+  ],
+  "sources": "National Weather Service flood safety",
+  "order": "move_first",
+  "moves": "the hero leaves the car and run_away to higher ground before the water rises"
+ },
+ {
+  "id": "lightning_hike",
+  "title": "Thunderstorm above the tree line",
+  "env": "mountain",
+  "hazard": "storm",
+  "time": "dusk",
+  "advice": [
+   "When thunder roars, go indoors - no place outside is truly safe; a building or hard-top car is",
+   "Get off peaks and ridges right away and head down",
+   "Never shelter under a lone tree or near metal fences",
+   "Spread a group out so one strike does not hit everyone"
+  ],
+  "sources": "National Weather Service lightning safety",
+  "order": "hazard_first",
+  "moves": "the storm starts first; the hero run_away down the mountain, avoids lone trees, then enter_shelter (rock)"
+ },
+ {
+  "id": "hurricane",
+  "title": "Hurricane storm surge",
+  "env": "beach",
+  "hazard": "storm",
+  "time": "dusk",
+  "advice": [
+   "If officials say evacuate, go - water (storm surge and flooding), not wind, causes most hurricane deaths",
+   "Run from the water, hide from the wind: leave surge zones, then shelter in a sturdy building",
+   "Stay away from windows, in an interior room",
+   "Do not walk or drive through flood water after the storm; watch for downed power lines"
+  ],
+  "sources": "National Hurricane Center; Ready.gov hurricanes",
+  "order": "move_first",
+  "moves": "the hero walk_to_shelter then enter_shelter (sturdy building interior) before the surge hits"
+ }
+]

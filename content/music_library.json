@@ -1,0 +1,90 @@
+{
+ "epic": [
+  {
+   "title": "Hiding Your Reality",
+   "file": "Hiding Your Reality.mp3"
+  },
+  {
+   "title": "Eternal Terminal",
+   "file": "Eternal Terminal.mp3"
+  },
+  {
+   "title": "Rynos Theme",
+   "file": "Rynos Theme.mp3"
+  },
+  {
+   "title": "Urban Gauntlet",
+   "file": "Urban Gauntlet.mp3"
+  },
+  {
+   "title": "Magistar",
+   "file": "Magistar.mp3"
+  }
+ ],
+ "tense": [
+  {
+   "title": "Stay the Course",
+   "file": "Stay the Course.mp3"
+  },
+  {
+   "title": "I Can Feel it Coming",
+   "file": "I Can Feel it Coming.mp3"
+  },
+  {
+   "title": "Darkling",
+   "file": "Darkling.mp3"
+  },
+  {
+   "title": "Division",
+   "file": "Division.mp3"
+  },
+  {
+   "title": "Man Down",
+   "file": "Man Down.mp3"
+  }
+ ],
+ "dark": [
+  {
+   "title": "SCP-x6x (Hopes)",
+   "file": "SCP-x6x.mp3"
+  },
+  {
+   "title": "SCP-x5x (Outer Thoughts)",
+   "file": "SCP-x5x.mp3"
+  },
+  {
+   "title": "Night Vigil",
+   "file": "Night Vigil.mp3"
+  },
+  {
+   "title": "Almost New",
+   "file": "Almost New.mp3"
+  },
+  {
+   "title": "SCP-x7x (6th Floor)",
+   "file": "SCP-x7x.mp3"
+  }
+ ],
+ "calm": [
+  {
+   "title": "Inspired",
+   "file": "Inspired.mp3"
+  },
+  {
+   "title": "Airship Serenity",
+   "file": "Airship Serenity.mp3"
+  },
+  {
+   "title": "Late Night Radio",
+   "file": "Late Night Radio.mp3"
+  },
+  {
+   "title": "Evening",
+   "file": "Evening.mp3"
+  },
+  {
+   "title": "Mana Two - Part 1",
+   "file": "Mana Two - Part 1.mp3"
+  }
+ ]
+}

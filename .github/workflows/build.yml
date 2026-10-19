@@ -1,0 +1,45 @@
+name: Build English shorts
+
+on:
+  schedule:
+    - cron: "15 10 * * *"   # after the daily Gemini voice limit resets
+    - cron: "15 16 * * *"   # second try if the first run hit a limit
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: en-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: remotion/package-lock.json
+      - run: npm ci && npx remotion browser ensure
+        working-directory: remotion
+      - run: python en_prod.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+      - name: Save queue
+        if: always()
+        run: |
+          git config user.name "en-shorts-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add queue/ data/
+          git diff --cached --quiet || (git commit -m "New videos in queue" && git pull --rebase --autostash && git push)
