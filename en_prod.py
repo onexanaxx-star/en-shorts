@@ -123,8 +123,10 @@ def numbers_in(text):
     return found
 
 
-def ask(prompt, check, tries=6):
+def ask(prompt, check, tries=6, repair=None):
+    """Спрашивает ИИ, пока ответ не пройдёт проверку; repair(d) - последняя попытка починить ответ кодом."""
     note = ""
+    last = None
     for _ in range(tries):
         try:
             d = L.parse_json(L.llm(SYSTEM, prompt + note))
@@ -134,8 +136,14 @@ def ask(prompt, check, tries=6):
         problems = check(d)
         if not problems:
             return d
+        last = d
         print("  отклонено:", "; ".join(problems)[:300])
         note = "\nIMPORTANT, your previous answer was rejected: " + "; ".join(problems)
+    if repair and last is not None:
+        fixed = repair(last)
+        if not check(fixed):
+            print("  план починен кодом")
+            return fixed
     raise RuntimeError("ИИ не справился со сценарием")
 
 
@@ -324,7 +332,33 @@ def build_evening(state):
             probs.append("labels must be in English")
         return probs
 
-    plan = state.get("draft_plan") or ask(DIRECTOR.format(lines="\n".join(f"{i + 1}. {l}" for i, l in enumerate(lines)), n=n), dcheck)
+    def repair(p):
+        """Лишние повторы и одинаковые соседние анимации - на текстовые со словами самой фразы."""
+        sc = [dict(x) for x in (p.get("scenes") or [])][:n]
+        sc += [{"type": "none"}] * (n - len(sc))
+        spare = ["title", "typewriter", "stamp", "wordstack", "marker"]
+        used = {}
+        for i, x in enumerate(sc):
+            t = x.get("type")
+            k = num_keys.get(t)
+            bad = ((t != "none" and used.get(t, 0) >= 2) or (i > 0 and t == sc[i - 1].get("type") and t != "none")
+                   or (k and float(x.get(k, -1)) not in allowed))
+            if bad:
+                words = re.sub(r"[^A-Za-z0-9' ]", "", lines[i]).upper().split()
+                alt = next((a for a in spare if used.get(a, 0) < 2 and (i == 0 or sc[i - 1].get("type") != a)), "title")
+                if alt == "wordstack":
+                    x = {"type": "wordstack", "words": [w + "." for w in words[:3]]}
+                elif alt == "marker":
+                    ws = lines[i].split()[:6]
+                    x = {"type": "marker", "text": " ".join(ws), "mark": max(ws, key=len).strip(".,!?")}
+                else:
+                    x = {"type": alt, "text": " ".join(words[:2] if alt == "stamp" else words[:4])}
+                sc[i] = x
+                t = alt
+            used[t] = used.get(t, 0) + 1
+        return {**p, "scenes": sc}
+
+    plan = state.get("draft_plan") or ask(DIRECTOR.format(lines="\n".join(f"{i + 1}. {l}" for i, l in enumerate(lines)), n=n), dcheck, repair=repair)
     for sc in plan["scenes"]:  # слова при числе (METERS, PEOPLE) - в подпись, иначе огромная надпись вылезает за край
         suf = str(sc.get("suffix") or "")
         if sc.get("type") in ("counter", "odometer") and re.search("[A-Za-z]{2,}", suf):
@@ -390,10 +424,13 @@ def main():
     L.load_env()
     q, state = load_queue(), load_state()
     one = sys.argv[sys.argv.index("--one") + 1] if "--one" in sys.argv else None
-    built = 0
+    built, failed = 0, set()
     while built < (1 if one else MAX_PER_RUN):
         horizon = (dt.date.today() + dt.timedelta(days=DAYS_AHEAD)).isoformat()
-        slot = one or min(("morning", "evening"), key=lambda s: next_date(q, s))
+        slots = [s for s in ("morning", "evening") if s not in failed]
+        if not slots:
+            break
+        slot = one or min(slots, key=lambda s: next_date(q, s))
         d = next_date(q, slot)
         if not one and d.isoformat() > horizon:
             print("очередь заполнена на", DAYS_AHEAD, "дней")
@@ -403,6 +440,12 @@ def main():
         except L.VoiceLimit as e:
             print(" ", e, "- остальное соберу завтра")
             break
+        except Exception as e:  # один неудачный ролик не роняет всю сборку - второй слот собирается дальше
+            print(f"  {slot}: не собрался ({type(e).__name__}: {e}) - повторю в следующий запуск")
+            failed.add(slot)
+            if one:
+                break
+            continue
         if os.environ.get("TELEGRAM_BOT_TOKEN"):
             item["tg_video"] = L.upload_video(item["file"], _admin_chat())
         item["date"] = d.isoformat()
