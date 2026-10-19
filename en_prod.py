@@ -240,7 +240,7 @@ def dedupe(text):
 
 def tiktok(text):
     """Подпись TikTok: без #shorts (это тег YouTube) и без повторов."""
-    return dedupe(re.sub(r"\s*#shorts", "", text, flags=re.I))
+    return dedupe(re.sub(r"\s*#shorts(?![a-z0-9])", "", text, flags=re.I))
 
 
 def credits(music):
