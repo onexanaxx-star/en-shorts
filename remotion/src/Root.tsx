@@ -6,6 +6,7 @@ import { GimliRecon, ReconProps, calcRecon } from "./GimliRecon";
 import { GimliReal } from "./GimliReal";
 import { Tsunami, SurvProps, calcSurv } from "./Tsunami";
 import { Scenario, ScenarioProps, calcScenario } from "./Scenario";
+import { BrandAvatar, BrandBanner } from "./Brand";
 
 const sample: AutoProps = {
   id: "sample",
@@ -82,6 +83,8 @@ export const RemotionRoot: React.FC = () => {
         spec: { env: "city", hero: { name: "Sam" }, hazard: { type: "dark", line: 0 }, shots: [{ focus: "hero" }], ending: "TEST" } } as ScenarioProps}
       calculateMetadata={calcScenario}
     />
+    <Composition id="BrandAvatar" component={BrandAvatar} durationInFrames={1} fps={30} width={1080} height={1080} />
+    <Composition id="BrandBanner" component={BrandBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
     </>
   );
 };
