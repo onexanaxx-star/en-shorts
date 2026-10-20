@@ -388,9 +388,11 @@ def archive(vid, pub):
     dst = ARCHIVE / vid
     dst.mkdir(parents=True, exist_ok=True)
     L.ff("-i", pub / "voice.wav", "-c:a", "libmp3lame", "-b:a", "96k", dst / "voice.mp3")
-    for f in ("props.json", "bg.json", "music.mp3"):
+    for f in ("props.json", "bg.json"):
         if (pub / f).exists():
             L.shutil.copy(pub / f, dst / f)
+    if (pub / "music.txt").exists():  # музыку не храним (её всегда можно скачать) - только название файла
+        L.shutil.copy(pub / "music.txt", dst / "music.txt")
 
 
 def make_video(vid, lines, comp, spec=None, scenes=None, bg=None, accent=None, tag=None, mood="tense"):
@@ -407,6 +409,7 @@ def make_video(vid, lines, comp, spec=None, scenes=None, bg=None, accent=None, t
     total = round(t + 3.0, 3)
     try:
         music = L.pick_music(mood, vid, pub / "music.mp3")
+        (pub / "music.txt").write_text(music, encoding="utf-8")
     except Exception as e:
         print("  музыка не скачалась, ролик без неё:", e)
         music = None

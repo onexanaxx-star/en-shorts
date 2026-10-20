@@ -187,6 +187,17 @@ def sfx_vol(voice_wav):
 MUSIC_URL = "https://incompetech.com/music/royalty-free/mp3-royaltyfree/"
 
 
+def pick_music_file(file, dest):
+    from urllib.parse import quote
+    cache = CACHE.parent / "music" / file
+    if not cache.exists():
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        r = requests.get(MUSIC_URL + quote(file), headers={"User-Agent": "Mozilla/5.0"}, timeout=120)
+        r.raise_for_status()
+        cache.write_bytes(r.content)
+    shutil.copy(cache, dest)
+
+
 def pick_music(mood, key, dest):
     from urllib.parse import quote
     lib = json.loads((ROOT / "content" / "music_library.json").read_text(encoding="utf-8"))

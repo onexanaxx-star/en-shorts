@@ -34,9 +34,13 @@ def rerender(vid):
     pub = L.PUBLIC / "auto" / vid
     pub.mkdir(parents=True, exist_ok=True)
     L.ff("-i", arc / "voice.mp3", "-ar", "44100", "-ac", "1", pub / "voice.wav")
-    for f in ("props.json", "music.mp3"):
-        if (arc / f).exists():
-            L.shutil.copy(arc / f, pub / f)
+    L.shutil.copy(arc / "props.json", pub / "props.json")
+    if (arc / "music.txt").exists():  # музыка по названию трека - скачивается заново
+        title = (arc / "music.txt").read_text(encoding="utf-8").strip()
+        lib = json.loads((L.ROOT / "content" / "music_library.json").read_text(encoding="utf-8"))
+        tr = next((t for v in lib.values() if isinstance(v, list) for t in v if t["title"] == title), None)
+        if tr:
+            L.pick_music_file(tr["file"], pub / "music.mp3")
     props = json.loads((arc / "props.json").read_text(encoding="utf-8"))
     comp = "Scenario" if "spec" in props else "AutoInfo"
     if comp == "AutoInfo" and (arc / "bg.json").exists():
