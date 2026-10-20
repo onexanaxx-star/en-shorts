@@ -379,6 +379,20 @@ def build_evening(state):
             "tiktok": tiktok(f"{d['title']} {tags} #truestory #fyp"), "file": str(out)}
 
 
+ARCHIVE = ROOT / "archive"
+
+
+def archive(vid, pub):
+    """Голос, музыка и план ролика - в репозиторий (archive/<id>): потом любые правки шаблона можно применить
+    к уже собранным роликам без новой озвучки (en_rerender.py). Фон Pexels не храним - только его номер."""
+    dst = ARCHIVE / vid
+    dst.mkdir(parents=True, exist_ok=True)
+    L.ff("-i", pub / "voice.wav", "-c:a", "libmp3lame", "-b:a", "96k", dst / "voice.mp3")
+    for f in ("props.json", "bg.json", "music.mp3"):
+        if (pub / f).exists():
+            L.shutil.copy(pub / f, dst / f)
+
+
 def make_video(vid, lines, comp, spec=None, scenes=None, bg=None, accent=None, tag=None, mood="tense"):
     L.prepare_public()
     pub = L.PUBLIC / "auto" / vid
@@ -405,7 +419,8 @@ def make_video(vid, lines, comp, spec=None, scenes=None, bg=None, accent=None, t
         sfx.append({"s": "ding", "at": round(st[-1] + 0.2, 3), "v": vol["ding"]})
         props = {"id": vid, "total": total, "segments": segs, "words": words, "spec": spec, "music": f"auto/{vid}/music.mp3" if music else None, "sfx": sfx}
     else:
-        L.pick_bg(bg, total + 0.5, pub / "bg.mp4")
+        bg_id = L.pick_bg(bg, total + 0.5, pub / "bg.mp4")
+        (pub / "bg.json").write_text(json.dumps({"id": bg_id, "seconds": total + 0.5}), encoding="utf-8")
         sfx = [{"s": "pop", "at": round(st[i] + 0.3, 3), "v": vol["pop"]} for i, s in enumerate(scenes) if s.get("type") != "none"]
         sfx.append({"s": "ding", "at": round(segs[-1]["end"] + 0.3, 3), "v": vol["ding"]})
         props = {"id": vid, "tag": tag, "cta": "MORE TRUE STORIES LIKE THIS", "ctaSmall": "follow", "ctaWhere": "new story every day",
@@ -416,6 +431,7 @@ def make_video(vid, lines, comp, spec=None, scenes=None, bg=None, accent=None, t
     L.OUT.mkdir(parents=True, exist_ok=True)
     out = L.OUT / f"{vid}.mp4"
     L.render(comp, pf, out)
+    archive(vid, pub)
     print(f"[{vid}] {total:.1f} с")
     return out, music
 

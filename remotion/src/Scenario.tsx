@@ -513,11 +513,11 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
         })}
       </World>
       {darkHole > 0 ? (
-        <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 52%, rgba(0,0,0,0) 0%, rgba(0,0,0,${0.15 * darkHole}) 18%, rgba(0,0,0,${0.82 * darkHole}) 42%)` }} />
+        <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 52%, rgba(0,0,0,0) 0%, rgba(0,0,0,${0.08 * darkHole}) 24%, rgba(0,0,0,${0.5 * darkHole}) 55%)` }} />
       ) : null}
       {/* низ кадра темнее - субтитры читаются даже на снегу и песке */}
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(8,10,18,0.45) 0%, rgba(8,10,18,0) 18%, rgba(8,10,18,0) 52%, rgba(8,10,18,0.72) 68%, rgba(8,10,18,0.88) 100%)" }} />
-      {tm && t > tStart - 0.3 && t < s[n - 1] ? (
+      {tm && t > tStart - 0.3 && t < s[n - 1] && (t < tEnd + 0.4 || tm.after) ? (
         <Timer label={t < tEnd ? tm.label : tm.after ?? tm.label} secs={t < tEnd ? secs : (t - tEnd) * 60} warn={t < tEnd && secs < tm.minutes * 12}
           k={smooth(t, [tStart - 0.3, tStart + 0.2], [0, 1])} />
       ) : null}

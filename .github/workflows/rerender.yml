@@ -1,0 +1,47 @@
+name: Re-render videos (after template changes)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "video ids separated by spaces (empty = all upcoming)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: en-build
+  cancel-in-progress: false
+
+jobs:
+  rerender:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: remotion/package-lock.json
+      - run: npm ci && npx remotion browser ensure
+        working-directory: remotion
+      - run: python en_rerender.py ${{ github.event.inputs.ids }}
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Save queue
+        if: always()
+        run: |
+          git config user.name "en-shorts-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add queue/
+          git diff --cached --quiet || (git commit -m "Re-rendered videos" && git pull --rebase --autostash && git push)
