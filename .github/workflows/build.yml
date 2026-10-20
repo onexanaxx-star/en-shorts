@@ -5,6 +5,11 @@ on:
     - cron: "15 10 * * *"   # after the daily Gemini voice limit resets
     - cron: "15 16 * * *"   # second try if the first run hit a limit
   workflow_dispatch:
+    inputs:
+      redo:
+        description: "survival topic ids to rebuild both parts (empty = normal build)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -36,6 +41,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+          EN_REDO: ${{ github.event.inputs.redo }}
       - name: Save queue
         if: always()
         run: |

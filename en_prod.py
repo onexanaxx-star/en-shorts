@@ -439,9 +439,33 @@ def make_video(vid, lines, comp, spec=None, scenes=None, bg=None, accent=None, t
     return out, music
 
 
+def redo(topic_id, q):
+    """Переделать обе серии темы (часть 1 и 2) заново - на те же даты в очереди."""
+    idx = next(i for i, t in enumerate(SURV) if t["id"] == topic_id)
+    tmp = {"topic": idx, "part": 1, "story": 0}
+    for part in (1, 2):
+        item = build_morning(tmp)
+        old = next((x for x in q if x["id"] == item["id"]), None)
+        if os.environ.get("TELEGRAM_BOT_TOKEN"):
+            item["tg_video"] = L.upload_video(item["file"], _admin_chat())
+            item.pop("file")
+        if old:
+            item["date"], item["slot"] = old["date"], old["slot"]
+            q[q.index(old)] = item
+        else:
+            item["date"] = next_date(q, "morning").isoformat()
+            q.append(item)
+        save_queue(q)
+        print(f"  переделано: {item['date']} {item['id']} - {item['title']}")
+
+
 def main():
     L.load_env()
     q, state = load_queue(), load_state()
+    if os.environ.get("EN_REDO"):
+        for tid in os.environ["EN_REDO"].split():
+            redo(tid, q)
+        return
     one = sys.argv[sys.argv.index("--one") + 1] if "--one" in sys.argv else None
     built, failed = 0, set()
     while built < (1 if one else MAX_PER_RUN):
