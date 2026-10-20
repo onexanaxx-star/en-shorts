@@ -1,3 +1,4 @@
+import { CoverText, CoverSpec } from "./CoverText";
 // Универсальный шорт в стиле «Инфографика» (утверждён владельцем 17.10.2026 по примерам Карнеги и Форда).
 // Всё приходит в props из Python (info_short.py): голос, слова со временем, фразы, план анимаций по фразам.
 import { Audio } from "@remotion/media";
@@ -76,6 +77,7 @@ export type AutoProps = {
   lang?: string;
   ctaSmall?: string;
   ctaWhere?: string;
+  cover?: CoverSpec; // кадр-обложка: только фон и крупный текст
 };
 
 const SHAPES: Record<string, { pts: [number, number][]; low: number; hot: number }> = {
@@ -218,6 +220,21 @@ export const AutoInfo: React.FC<AutoProps> = (p) => {
     while (j < segs.length && p.scenes[j]?.type === "none") j++;
     return j < segs.length ? segs[j].start : cta;
   });
+  if (p.cover)
+    return (
+      <AbsoluteFill>
+        <InfoBG id={`auto/${p.id}`} />
+        {p.cover.scene !== undefined && p.scenes[p.cover.scene] ? (
+          // готовое состояние анимации (через 3 с после начала), опущено в середину под заголовок
+          <AbsoluteFill style={{ transform: "translateY(450px) scale(0.85)" }}>
+            <Sequence from={-90}>
+              <SceneView s={p.scenes[p.cover.scene]} dur={4} />
+            </Sequence>
+          </AbsoluteFill>
+        ) : null}
+        <CoverText c={p.cover} />
+      </AbsoluteFill>
+    );
   return (
     <AbsoluteFill>
       <InfoBG id={`auto/${p.id}`} />

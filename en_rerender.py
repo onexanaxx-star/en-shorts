@@ -1,7 +1,8 @@
 """Перерисовать уже собранные английские ролики после правок шаблона - без новой озвучки (из archive/<id>).
 Ролик заново рендерится, загружается в Telegram, в queue_en.json обновляется tg_video.
     python en_rerender.py                 # все ролики очереди с сегодняшнего дня и позже
-    python en_rerender.py en_tsunami_p2   # только эти"""
+    python en_rerender.py en_tsunami_p2   # только эти
+    python en_rerender.py --covers        # только обложки тем роликам очереди, у кого их ещё нет"""
 import datetime as dt
 import json
 import sys
@@ -25,7 +26,8 @@ def fetch_bg(info, out):
          "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30", "-c:v", "libx264", "-crf", "20", "-preset", "veryfast", out)
 
 
-def rerender(vid):
+def prepare(vid):
+    """Рабочие файлы ролика из архива: голос, музыка, фон. -> (папка, композиция) или None."""
     arc = P.ARCHIVE / vid
     if not (arc / "props.json").exists():
         print(f"  {vid}: нет в архиве - пропускаю")
@@ -45,13 +47,49 @@ def rerender(vid):
     comp = "Scenario" if "spec" in props else "AutoInfo"
     if comp == "AutoInfo" and (arc / "bg.json").exists():
         fetch_bg(json.loads((arc / "bg.json").read_text(encoding="utf-8")), pub / "bg.mp4")
+    return pub, comp
+
+
+def rerender(vid):
+    got = prepare(vid)
+    if not got:
+        return None
+    pub, comp = got
     out = L.OUT / f"{vid}.mp4"
     L.OUT.mkdir(parents=True, exist_ok=True)
     L.render(comp, pub / "props.json", out)
     return out
 
 
+def cover(it):
+    """Обложка уже собранному ролику: кадр без субтитров + текст от ИИ."""
+    got = prepare(it["id"])
+    if not got:
+        return None
+    pub, comp = got
+    L.OUT.mkdir(parents=True, exist_ok=True)
+    props = json.loads((pub / "props.json").read_text(encoding="utf-8"))
+    seg = props["segments"]
+    lines = [x["text"] for x in seg]
+    if comp == "Scenario":
+        part = 2 if it["id"].endswith("_p2") else 1
+        at = P.cover_at(props, part)
+        return P.make_cover(it["id"], comp, P.cover_text(it["title"], lines, part), f"PART {part}", "#E83430" if part == 1 else "#28AA5A", at)
+    return P.make_cover(it["id"], comp, P.cover_text(it["title"], lines), "TRUE STORY", props.get("accent") or "#E83430", 2.0)
+
+
 def main(ids):
+    if ids == ["--covers"]:
+        L.load_env()
+        q = P.load_queue()
+        today = dt.date.today().isoformat()
+        for it in [x for x in q if x.get("date", "") >= today and not x.get("tg_cover")]:
+            out = cover(it)
+            if out and L.os.environ.get("TELEGRAM_BOT_TOKEN"):
+                it["tg_cover"] = L.upload_photo(out, P._admin_chat())
+                P.save_queue(q)
+            print(it["id"], "обложка готова" if out else "без обложки", flush=True)
+        return
     L.load_env()
     q = P.load_queue()
     today = dt.date.today().isoformat()

@@ -272,6 +272,7 @@ def build_morning(state):
                                 n_lines="15-19", words="215-245", part_rules=PART1 if part == 1 else PART2,
                                 focus=FOCUS, actions=ACTIONS, icons=ICONS, extra="" if part == 1 else "- Keep the same hero name.", extra_keys=extra_keys)
     d = state.get("draft_morning") or ask(prompt, lambda d: surv_check(d, topic, part) + ([] if part == 2 or d.get("cliffhanger") else ["cliffhanger missing"]))
+    d.setdefault("cover", cover_text(d["title"], d["lines"], part))
     state["draft_morning"] = d
     save_state(state)
     vid = f"en_{topic['id']}_p{part}"
@@ -287,10 +288,13 @@ def build_morning(state):
     if not spec["timer"]:
         spec.pop("timer")
     out, music = make_video(vid, d["lines"], "Scenario", spec=spec, mood="tense")
+    at = cover_at(json.loads((L.PUBLIC / "auto" / vid / "props.json").read_text(encoding="utf-8")), part)
+    cover = make_cover(vid, "Scenario", d.get("cover") or cover_text(d["title"], d["lines"], part), f"PART {part}",
+                       "#E83430" if part == 1 else "#28AA5A", at)
     tags = " ".join(h if h.startswith("#") else "#" + h for h in d.get("hashtags", [])[:5])
     item = {"id": vid, "slot": "morning", "kind": "survival", "title": d["title"] if "part" in d["title"].lower() else d["title"] + f" (Part {part})",
             "yt": f"{d['description']}\n\nBased on official safety guidance: {topic['sources']}. Not professional advice.\n\n{credits(music)}\n\n" + dedupe(f"{tags} #shorts"),
-            "tiktok": tiktok(f"{d['title']} What would you do? {tags} #survival #fyp"), "file": str(out)}
+            "tiktok": tiktok(f"{d['title']} What would you do? {tags} #survival #fyp"), "file": str(out), "cover": str(cover) if cover else None}
     if part == 1:
         acts = [s.get("hero") for s in d["shots"] if s.get("hero") in ("walk_to_shelter", "climb_shelter", "enter_shelter", "run_away")]
         end = {"climb_shelter": "top", "enter_shelter": "inside", "walk_to_shelter": "door"}.get(acts[-1] if acts else "", start)
@@ -370,13 +374,80 @@ def build_evening(state):
     out, music = make_video(vid, lines, "AutoInfo", scenes=plan["scenes"], bg=plan.get("bg") or st["bg"], accent=st["accent"],
                             tag={"aviation": "AVIATION", "survival": "TRUE STORY", "business": "BUSINESS FAILS", "space": "SPACE",
                                  "mystery": "UNSOLVED"}.get(st["kind"], "TRUE STORY"), mood=d.get("mood", "tense"))
+    d.setdefault("cover", cover_text(d["title"], lines))
+    cover = make_cover(vid, "AutoInfo", d["cover"], "TRUE STORY", st["accent"], 2.0)
     tags = " ".join(h if h.startswith("#") else "#" + h for h in d.get("hashtags", [])[:5])
     state["story"] += 1
     state.pop("draft_evening", None)
     state.pop("draft_plan", None)
     return {"id": vid, "slot": "evening", "kind": "story", "title": d["title"],
             "yt": f"{d['description']}\n\nSources: {st['sources']}.\n\n{credits(music)}\n\n" + dedupe(f"{tags} #shorts"),
-            "tiktok": tiktok(f"{d['title']} {tags} #truestory #fyp"), "file": str(out)}
+            "tiktok": tiktok(f"{d['title']} {tags} #truestory #fyp"), "file": str(out), "cover": str(cover) if cover else None}
+
+
+# ---------- обложка (владелец 20.10.2026: обложку - сразу к каждому ролику; текст в середине, TikTok обрезает края) ----------
+COVER_PROMPT = """Write the text for a vertical YouTube Shorts / TikTok cover (thumbnail) of this video.
+Title: {title}
+Script:
+{lines}
+{rule}
+Return JSON: {{"top": ["line 1", "line 2"], "bottom": ["line 1", "line 2"]}}
+- "top": the hook, 2 lines, max 12 characters per line, 1-3 words per line, CAPS feeling (e.g. ["TSUNAMI", "AT NIGHT"]).
+- "bottom": a curiosity question, 2 short lines, max 12 characters per line (e.g. ["WHAT WOULD", "YOU DO?"]).
+- Plain English, no emojis, no hashtags, do not spoil the ending."""
+COVER_RULE = {1: "This is PART 1 and ends on a cliffhanger.", 2: "This is PART 2 - the resolution; the bottom must ask if the hero made it (no spoiler)."}
+
+
+def cover_text(title, lines, part=None):
+    def check(d):
+        top, bottom = d.get("top") or [], d.get("bottom") or []
+        p = [] if 1 <= len(top) <= 2 and 1 <= len(bottom) <= 2 else ["need 1-2 top lines and 1-2 bottom lines"]
+        if any(len(x) > 13 for x in top + bottom):
+            p.append("a line is longer than 12 characters - shorten")
+        if re.search("[а-яё#]", json.dumps(d, ensure_ascii=False).lower()):
+            p.append("English only, no hashtags")
+        return p
+    d = ask(COVER_PROMPT.format(title=title, lines=chr(10).join(lines), rule=COVER_RULE.get(part, "This is a true story. Do not put numbers in the text - the key number is shown big in the middle separately.")), check)
+    return {"top": [x.upper() for x in d["top"]], "bottom": [x.upper() for x in d["bottom"]]}
+
+
+def cover_at(props, part):
+    """Момент для обложки: общий план (wide/hazard/shelter) после удара стихии - видно и героя, и опасность."""
+    seg, spec = props["segments"], props["spec"]
+    first = spec["hazard"]["line"] if part == 1 else len(seg) // 3
+    for i in range(first, len(seg) - 1):
+        sh = spec["shots"][i] if i < len(spec["shots"]) else {}
+        if sh.get("focus") in ("wide", "hazard", "shelter") and sh.get("zoom") != "close":
+            return seg[i]["start"] + (3.0 if i == spec["hazard"]["line"] else 1.5)
+    return seg[first]["start"] + 3.0
+
+
+def story_scene(props):
+    """Анимация для середины обложки истории: первое крупное число (counter/odometer) или штамп."""
+    sc = props.get("scenes") or []
+    for kinds in (("counter",), ("odometer", "stamp")):
+        for i, x in enumerate(sc):
+            if x.get("type") in kinds:
+                return i
+    return None
+
+
+def make_cover(vid, comp, text, tag, color, at):
+    """Кадр ролика без табличек и субтитров + крупный текст -> out/en/<id>_cover.jpg."""
+    pub = L.PUBLIC / "auto" / vid
+    props = json.loads((pub / "props.json").read_text(encoding="utf-8"))
+    props["cover"] = {"tag": tag, "tagColor": color, **text}
+    if comp == "AutoInfo" and story_scene(props) is not None:
+        props["cover"]["scene"] = story_scene(props)
+    pf = pub / "cover_props.json"
+    pf.write_text(json.dumps(props, ensure_ascii=False), encoding="utf-8")
+    out = L.OUT / f"{vid}_cover.jpg"
+    try:
+        L.still(comp, pf, out, min(at, props["total"] - 4))
+    except Exception as e:  # без обложки ролик всё равно уходит в очередь
+        print("  обложка не собралась:", e)
+        return None
+    return out
 
 
 ARCHIVE = ROOT / "archive"
@@ -448,6 +519,9 @@ def redo(topic_id, q):
         old = next((x for x in q if x["id"] == item["id"]), None)
         if os.environ.get("TELEGRAM_BOT_TOKEN"):
             item["tg_video"] = L.upload_video(item["file"], _admin_chat())
+            cv = item.pop("cover", None)
+            if cv:
+                item["tg_cover"] = L.upload_photo(cv, _admin_chat())
             item.pop("file")
         if old:
             item["date"], item["slot"] = old["date"], old["slot"]
@@ -491,6 +565,9 @@ def main():
             continue
         if os.environ.get("TELEGRAM_BOT_TOKEN"):
             item["tg_video"] = L.upload_video(item["file"], _admin_chat())
+            cv = item.pop("cover", None)
+            if cv:
+                item["tg_cover"] = L.upload_photo(cv, _admin_chat())
         item["date"] = d.isoformat()
         item.pop("file") if os.environ.get("TELEGRAM_BOT_TOKEN") else None
         q.append(item)

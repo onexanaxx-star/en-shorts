@@ -5,6 +5,7 @@ import { Audio } from "@remotion/media";
 import React from "react";
 import { AbsoluteFill, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Music } from "./AutoInfo";
+import { CoverText, CoverSpec } from "./CoverText";
 import { Building, C, Car, HotCaptions, Person, rnd, Siren, Stars, Tag, Timer, Water, World } from "./flat";
 import { smooth } from "./GimliRecon";
 import { clamp, Word } from "./infokit";
@@ -39,6 +40,7 @@ export type ScenarioProps = {
   spec: ScenarioSpec;
   music?: string;
   sfx?: { s: string; at: number; v: number }[];
+  cover?: CoverSpec; // кадр-обложка: без табличек, таймера и субтитров, с крупным текстом
 };
 
 const W = 3600, G = 1500;
@@ -483,6 +485,8 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
 
   return (
     <AbsoluteFill style={{ background: C.night }}>
+      {/* на обложке сцена ниже - герой не прячется за заголовком */}
+      <AbsoluteFill style={{ transform: p.cover ? "translateY(300px)" : undefined }}>
       <World cam={cam} t={t} w={W} h={1920}>
         <Backdrop env={env} time={time} t={t} hz={hz.type === "dark" ? { ...hz, p: Math.max(hz.p, fxK("lights_off")) } : hz} recede={recede} jamT={t} />
         {spec.crowd
@@ -501,7 +505,7 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
         </g>
         <HazardFx hz={hz} t={t} env={env} heroX={hx} />
         {spec.shots.map((sh2, i) => {
-          const k = tagK(i) * (1 - endK); // под финальной заставкой таблички не видны
+          const k = p.cover ? 0 : tagK(i) * (1 - endK); // под финальной заставкой таблички не видны
           if (k <= 0.01) return null;
           const [x, y] = target(sh2, hx, hy);
           return (
@@ -512,17 +516,18 @@ export const Scenario: React.FC<ScenarioProps> = (p) => {
           );
         })}
       </World>
+      </AbsoluteFill>
       {darkHole > 0 ? (
         <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 52%, rgba(0,0,0,0) 0%, rgba(0,0,0,${0.08 * darkHole}) 24%, rgba(0,0,0,${0.5 * darkHole}) 55%)` }} />
       ) : null}
       {/* низ кадра темнее - субтитры читаются даже на снегу и песке */}
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(8,10,18,0.45) 0%, rgba(8,10,18,0) 18%, rgba(8,10,18,0) 52%, rgba(8,10,18,0.72) 68%, rgba(8,10,18,0.88) 100%)" }} />
-      {tm && t > tStart - 0.3 && t < s[n - 1] && (t < tEnd + 0.4 || tm.after) ? (
+      {!p.cover && tm && t > tStart - 0.3 && t < s[n - 1] && (t < tEnd + 0.4 || tm.after) ? (
         <Timer label={t < tEnd ? tm.label : tm.after ?? tm.label} secs={t < tEnd ? secs : (t - tEnd) * 60} warn={t < tEnd && secs < tm.minutes * 12}
           k={smooth(t, [tStart - 0.3, tStart + 0.2], [0, 1])} />
       ) : null}
-      <HotCaptions words={p.words} hot={spec.hot ?? {}} until={end + 0.3} />
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: endK, background: `rgba(8,10,18,${0.55 * endK})` }}>
+      {p.cover ? <CoverText c={p.cover} /> : <HotCaptions words={p.words} hot={spec.hot ?? {}} until={end + 0.3} />}
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: p.cover ? 0 : endK, background: `rgba(8,10,18,${0.55 * endK})` }}>
         <div style={{ fontFamily: "Oswald", fontWeight: 700, fontSize: 116, color: C.white, textAlign: "center", lineHeight: 1.05, marginTop: -260, maxWidth: 940 }}>{spec.ending}</div>
         {spec.endingSub ? (
           <div style={{ marginTop: 40, fontFamily: "Montserrat", fontWeight: 900, fontSize: 46, letterSpacing: 6, color: "#111", background: C.yellow, padding: "14px 40px", borderRadius: 14 }}>

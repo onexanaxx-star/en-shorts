@@ -7,6 +7,8 @@ import { GimliReal } from "./GimliReal";
 import { Tsunami, SurvProps, calcSurv } from "./Tsunami";
 import { Scenario, ScenarioProps, calcScenario } from "./Scenario";
 import { BrandAvatar, BrandBanner } from "./Brand";
+import { BrandAvatar2, BrandBanner2 } from "./Brand2";
+import { LongEssay, EssayProps, calcEssay } from "./LongEssay";
 
 const sample: AutoProps = {
   id: "sample",
@@ -85,6 +87,11 @@ export const RemotionRoot: React.FC = () => {
     />
     <Composition id="BrandAvatar" component={BrandAvatar} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="BrandBanner" component={BrandBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
+    <Composition id="BrandAvatar2" component={BrandAvatar2} durationInFrames={1} fps={30} width={1080} height={1080} />
+    <Composition id="BrandBanner2" component={BrandBanner2} durationInFrames={1} fps={30} width={2560} height={1440} />
+    <Composition id="LongEssay" component={LongEssay} durationInFrames={300} fps={30} width={1920} height={1080}
+      defaultProps={{ id: "x", total: 10, segments: [{ text: "", start: 0, end: 1 }], words: [["x", 0, 1]], blocks: [], brolls: [], cues: [] } as EssayProps}
+      calculateMetadata={calcEssay} />
     </>
   );
 };

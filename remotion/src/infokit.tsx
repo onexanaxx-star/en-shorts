@@ -78,7 +78,7 @@ export const Header: React.FC<{ tag: string }> = ({ tag }) => {
 };
 
 /** Субтитры как в A: фраза стоит на месте (появляется мягким подъёмом), слова плавно загораются золотом. */
-export const Captions: React.FC<{ words: Word[]; until: number; top?: number }> = ({ words, until, top = 1420 }) => {
+export const Captions: React.FC<{ words: Word[]; until: number; top?: number; maxWidth?: number }> = ({ words, until, top = 1420, maxWidth = 940 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
@@ -103,7 +103,7 @@ export const Captions: React.FC<{ words: Word[]; until: number; top?: number }> 
   const k = interpolate(t, [st, st + 0.18], [0, 1], { ...clamp, easing: ease });
   return (
     <AbsoluteFill style={{ top, height: 260, alignItems: "center", opacity: k, translate: `0px ${(1 - k) * 22}px` }}>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", maxWidth: 940 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", maxWidth }}>
         {p.map((i) => {
           const [w, a] = words[i];
           const now = t >= a && t < (words[i + 1]?.[1] ?? a + 0.6);

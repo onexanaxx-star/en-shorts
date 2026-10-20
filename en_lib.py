@@ -295,3 +295,23 @@ def render(comp, props, out):
     npx = "npx.cmd" if os.name == "nt" else "npx"
     subprocess.run([npx, "remotion", "render", "src/index.ts", comp, str(Path(out).resolve()), f"--props={pf.resolve()}",
                     f"--public-dir={PUBLIC.resolve()}", "--crf=20", "--log=error"], cwd=RM, check=True)
+
+
+def still(comp, props, out, at):
+    """Один кадр композиции (обложка) в JPEG."""
+    pf = Path(props)
+    npx = "npx.cmd" if os.name == "nt" else "npx"
+    subprocess.run([npx, "remotion", "still", "src/index.ts", comp, str(Path(out).resolve()), f"--props={pf.resolve()}",
+                    f"--public-dir={PUBLIC.resolve()}", f"--frame={int(at * 30)}", "--image-format=jpeg", "--jpeg-quality=92",
+                    "--log=error"], cwd=RM, check=True)
+
+
+def upload_photo(path, chat):
+    """Обложка - в Telegram (хранилище), как и ролик; остаётся file_id."""
+    with open(path, "rb") as f:
+        res = tg("sendPhoto", data={"chat_id": chat, "disable_notification": "true"}, files={"photo": (Path(path).name, f, "image/jpeg")})["result"]
+    try:
+        tg("deleteMessage", data={"chat_id": chat, "message_id": res["message_id"]})
+    except Exception:
+        pass
+    return res["photo"][-1]["file_id"]
