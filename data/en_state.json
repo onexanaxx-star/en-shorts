@@ -1,187 +1,189 @@
 {
- "topic": 2,
- "part": 2,
- "story": 0,
- "part1": {
-  "lines": [
-   "If the city power cuts out completely, do not light a single candle inside your room.",
-   "Candles cause dangerous house fires during blackouts, and Jack knows the grid will stay dead for days.",
-   "Suddenly, every skyscraper window goes completely pitch black across the entire downtown skyline at 10 PM.",
-   "Jack immediately moves away from the pitch black streets and walks toward his tall office building shelter.",
-   "Panicked drivers honk on gridlocked roads, but Jack keeps moving fast toward safety.",
-   "He reaches the heavy lobby doors and steps safely inside the fortified building.",
-   "One. Store water early by filling every container and bathtub while the water taps still work.",
-   "Gravity tanks empty fast during a blackout, so Jack secures clean emergency drinking water immediately.",
-   "Two. Use battery flashlights for illumination instead of matches because open flames trigger deadly building fires.",
-   "Jack clicks on his durable LED flashlight, lighting the dark interior without risking any fire danger.",
-   "Three. Keep the fridge and freezer shut tight to preserve every ounce of your perishable food.",
-   "A closed fridge keeps food safe for about 4 hours, and a full freezer lasts 48 hours.",
-   "Jack also knows to never run a generator, grill, or camp stove indoors because carbon monoxide kills silently.",
-   "He has clean water, safe battery light, and cold rations secured inside his locked high-rise office.",
-   "It was the perfect blackout survival plan, but there was just one terrible problem.",
-   "Heavy smoke begins pouring from under the stairwell door, and all exit alarms are dead."
-  ],
-  "cliffhanger": "Toxic smoke fills the stairwell while the building alarms are completely dead, trapping Jack high up in the dark.",
-  "hero": "Jack",
-  "end": "inside"
- },
+ "topic": 3,
+ "part": 1,
+ "story": 2,
  "draft_morning": {
   "lines": [
-   "Part two. Toxic smoke fills the high stairwell while all emergency alarms remain totally dead.",
-   "Someone downstairs lit emergency candles, sparking an uncontrolled fire across the lower office floors.",
-   "All streetlights and grid power stay dead, leaving the entire city in freezing blackness.",
-   "Jack quickly retreats backward and walks toward his backup office shelter on the safe side.",
-   "Scared workers cough down the hall, but Jack urges everyone to stay low and calm.",
-   "He pulls his team inside the secondary suite and shuts the heavy fire door securely.",
-   "One. Never open doors that feel warm, and seal all door cracks with wet clothing.",
-   "Jack uses his stored water to soak jackets, blocking deadly carbon monoxide from seeping inside.",
-   "Two. Never run a generator, grill or camp stove indoors because carbon monoxide kills silently.",
-   "Panicked survivors downstairs try starting a gas stove, but Jack warns them through the doorway.",
-   "Three. Conserve battery flashlights and avoid breathing toxic smoke by staying low against the floor.",
-   "Jack clicks his LED flashlight to low power, preserving critical visibility through the pitch dark.",
-   "Remember that a closed fridge keeps food safe 4 hours and full freezers 48 hours.",
-   "Jack shares emergency cold rations and clean bottled water with the stranded workers beside him.",
-   "Sirens finally echo outside as city firefighters battle the blaze and clear the lower floors.",
-   "Fire crews reach Jack's sealed safe room and guide everyone down through the safe stairwell.",
-   "Use flashlights instead of candles during blackouts. Follow for a new scenario tomorrow."
+   "If your car stalls in a freezing blizzard at night, do not leave the vehicle.",
+   "Mark needs to survive the freezing night on a dark highway while snow piles high.",
+   "Heavy snow falls fast around the car and blocks every single window completely now.",
+   "The freezing wind howls outside the metal walls as Mark sits trapped in the dark.",
+   "One. Stay right inside the car because it is your best shelter from death.",
+   "A car is much easier for the rescue crews to find than a single person.",
+   "Two. Clear all the snow from the exhaust pipe first before you start anything.",
+   "A blocked pipe fills the entire cabin with deadly carbon monoxide in just minutes.",
+   "Mark wipes the deep snow away from the back pipe with freezing bare hands.",
+   "Three. Run the engine for only 10 minutes each hour to keep warm inside.",
+   "Crack a window just a little bit so fresh air can flow inside safely.",
+   "Tie a bright cloth to the antenna so rescue teams spot the car easily.",
+   "Turn on the inside light at night so passing search crews can see you.",
+   "Mark finishes the safety steps and waits patiently for the morning rescue teams.",
+   "It was the correct survival plan for anyone trapped on a winter night.",
+   "There was just one unexpected problem waiting outside in the deep snowdrifts."
   ],
   "shots": [
    {
-    "focus": "hazard",
-    "zoom": "medium",
-    "tag": "DEADLY SMOKE",
-    "tagColor": "red",
-    "icon": "warning",
-    "iconText": "SMOKE"
-   },
-   {
-    "focus": "hazard",
-    "zoom": "wide",
-    "hero": "look",
-    "icon": "fire",
-    "iconText": "CANDLE"
-   },
-   {
-    "focus": "sky",
-    "zoom": "wide",
-    "tag": "GRID COLLAPSE",
-    "tagColor": "red",
-    "fx": "lights_off"
-   },
-   {
     "focus": "hero",
-    "zoom": "medium",
-    "hero": "walk_to_shelter"
+    "zoom": "close",
+    "tag": "STAY INSIDE",
+    "tagColor": "red",
+    "hero": "look",
+    "icon": "car",
+    "iconText": "CAR"
    },
    {
-    "focus": "crowd",
-    "zoom": "medium",
-    "tag": "STAY CALM",
+    "focus": "wide",
+    "zoom": "wide",
+    "tag": "BLIZZARD NIGHT",
     "tagColor": "yellow",
+    "hero": "crouch",
+    "icon": "snow",
+    "iconText": "SNOW"
+   },
+   {
+    "focus": "hazard",
+    "zoom": "medium",
+    "tag": "SNOW BUILDS UP",
+    "tagColor": "red",
+    "hero": "look",
+    "icon": "warning",
+    "iconText": "DANGER"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "close",
+    "tag": "COLD METAL",
+    "tagColor": "yellow",
+    "hero": "look"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "medium",
+    "tag": "STEP ONE",
+    "tagColor": "green",
+    "hero": "look",
+    "icon": "door",
+    "iconText": "SHELTER"
+   },
+   {
+    "focus": "wide",
+    "zoom": "wide",
+    "tag": "EASY TO FIND",
+    "tagColor": "green",
     "hero": "stand"
    },
    {
-    "focus": "shelter",
+    "focus": "hazard",
     "zoom": "close",
-    "hero": "enter_shelter",
-    "icon": "door",
-    "iconText": "SEALED"
-   },
-   {
-    "focus": "hero",
-    "zoom": "medium",
-    "tag": "SEAL GAPS",
-    "tagColor": "yellow",
-    "icon": "water"
-   },
-   {
-    "focus": "shelter",
-    "zoom": "close",
-    "hero": "crouch"
+    "tag": "STEP TWO",
+    "tagColor": "green",
+    "hero": "crouch",
+    "icon": "key",
+    "iconText": "PIPE"
    },
    {
     "focus": "hazard",
-    "zoom": "close",
-    "tag": "NO GAS INDOORS",
+    "zoom": "medium",
+    "tag": "CARBON MONOXIDE",
     "tagColor": "red",
+    "hero": "look",
     "icon": "skull",
     "iconText": "TOXIC"
    },
    {
     "focus": "shelter",
-    "zoom": "medium",
-    "hero": "stand"
-   },
-   {
-    "focus": "hero",
-    "zoom": "medium",
-    "tag": "USE FLASHLIGHTS",
-    "tagColor": "yellow",
-    "icon": "flashlight"
-   },
-   {
-    "focus": "hero",
     "zoom": "close",
+    "tag": "CLEAR SNOW",
+    "tagColor": "yellow",
     "hero": "crouch"
-   },
-   {
-    "focus": "top",
-    "zoom": "medium",
-    "tag": "COLD RATIONS",
-    "tagColor": "green",
-    "icon": "clock",
-    "iconText": "48 HOURS"
    },
    {
     "focus": "shelter",
     "zoom": "medium",
-    "hero": "stand",
-    "icon": "food"
+    "tag": "STEP THREE",
+    "tagColor": "green",
+    "hero": "look",
+    "icon": "clock",
+    "iconText": "10 MIN"
    },
    {
-    "focus": "wide",
-    "zoom": "wide",
-    "tag": "HELP ARRIVES",
-    "tagColor": "green"
+    "focus": "shelter",
+    "zoom": "close",
+    "tag": "CRACK WINDOW",
+    "tagColor": "yellow",
+    "hero": "look"
    },
    {
-    "focus": "crowd",
+    "focus": "top",
     "zoom": "medium",
-    "hero": "walk_to_shelter"
+    "tag": "BRIGHT CLOTH",
+    "tagColor": "green",
+    "hero": "stand",
+    "icon": "flashlight",
+    "iconText": "SIGNAL"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "close",
+    "tag": "INSIDE LIGHT",
+    "tagColor": "green",
+    "hero": "look"
+   },
+   {
+    "focus": "hero",
+    "zoom": "medium",
+    "tag": "WAITING",
+    "tagColor": "yellow",
+    "hero": "look"
    },
    {
     "focus": "hero",
     "zoom": "close",
-    "tag": "SAFETY FIRST",
-    "tagColor": "green",
-    "icon": "flashlight",
-    "iconText": "SAFE"
+    "tag": "THE PLAN",
+    "tagColor": "yellow",
+    "hero": "look"
+   },
+   {
+    "focus": "hazard",
+    "zoom": "wide",
+    "tag": "TWIST",
+    "tagColor": "red",
+    "hero": "look",
+    "icon": "question",
+    "iconText": "WAIT"
    }
   ],
-  "hero": "Jack",
-  "hazard_line": 0,
-  "crowd_line": 4,
-  "timer": null,
-  "hot": {
-   "smoke": "red",
-   "fire": "red",
-   "dead": "red",
-   "monoxide": "red",
-   "shelter": "yellow",
-   "sealed": "yellow",
-   "water": "yellow",
-   "flashlight": "yellow",
-   "flashlights": "yellow",
-   "firefighters": "yellow"
+  "hero": "Mark",
+  "hazard_line": 2,
+  "crowd_line": -1,
+  "timer": {
+   "label": "ENGINE RUN TIME",
+   "minutes": 10,
+   "startLine": 9,
+   "endLine": 10,
+   "after": "MINUTE LIMIT REACHED"
   },
-  "title": "Trapped in a Blackout Fire: Survival Part 2",
-  "description": "Jack faces toxic smoke in a city-wide blackout after an office building catches fire. Here is the safest way to survive trapped in a dark skyscraper.",
+  "hot": {
+   "blizzard": "red",
+   "death": "red",
+   "carbon monoxide": "red",
+   "deadly": "red",
+   "shelter": "yellow",
+   "stay": "yellow",
+   "clear": "yellow",
+   "run": "yellow",
+   "crack": "yellow",
+   "tie": "yellow"
+  },
+  "title": "Stuck In Your Car In A Blizzard? Do This To Survive",
+  "description": "Mark is trapped in his car during a brutal nighttime blizzard on a highway and must follow strict survival rules.",
   "hashtags": [
    "#survival",
-   "#blackout",
-   "#safetytips",
+   "#blizzard",
+   "#safety",
    "#emergency",
-   "#survivalskills"
-  ]
+   "#shorts"
+  ],
+  "cliffhanger": "A massive snowplow approaches from behind without seeing the buried car."
  }
 }
