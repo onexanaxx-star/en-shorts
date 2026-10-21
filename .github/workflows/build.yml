@@ -10,6 +10,14 @@ on:
         description: "survival topic ids to rebuild both parts (empty = normal build)"
         required: false
         default: ""
+      max:
+        description: "how many videos to build this run (voice limit ~10/day)"
+        required: false
+        default: "4"
+      days:
+        description: "fill the queue this many days ahead"
+        required: false
+        default: "7"
 
 permissions:
   contents: write
@@ -42,6 +50,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
           EN_REDO: ${{ github.event.inputs.redo }}
+          EN_MAX: ${{ github.event.inputs.max || '4' }}
+          EN_DAYS: ${{ github.event.inputs.days || '7' }}
       - name: Save queue
         if: always()
         run: |

@@ -31,8 +31,8 @@ def _admin_chat():
 
 
 ADMIN_CHAT = None
-DAYS_AHEAD = 7
-MAX_PER_RUN = int(os.environ.get("EN_MAX", "4"))
+DAYS_AHEAD = int(os.environ.get("EN_DAYS") or 7)
+MAX_PER_RUN = int(os.environ.get("EN_MAX") or 4)
 
 ENVS = ["beach", "city", "forest", "mountain", "desert", "home", "ice", "highway"]
 FOCUS = ["hero", "shelter", "top", "hazard", "crowd", "wide", "sky"]
