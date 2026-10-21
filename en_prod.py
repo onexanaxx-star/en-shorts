@@ -514,6 +514,15 @@ def redo(topic_id, q):
     """Переделать обе серии темы (часть 1 и 2) заново - на те же даты в очереди."""
     idx = next(i for i, t in enumerate(SURV) if t["id"] == topic_id)
     tmp = {"topic": idx, "part": 1, "story": 0}
+    real = STATE.read_text(encoding="utf-8") if STATE.exists() else None  # build_morning сохраняет tmp - вернём настоящее
+    try:
+        _redo_parts(tmp, q)
+    finally:
+        if real is not None:
+            STATE.write_text(real, encoding="utf-8")
+
+
+def _redo_parts(tmp, q):
     for part in (1, 2):
         item = build_morning(tmp)
         old = next((x for x in q if x["id"] == item["id"]), None)
