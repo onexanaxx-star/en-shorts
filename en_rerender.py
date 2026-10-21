@@ -98,6 +98,9 @@ def main(ids):
         out = rerender(it["id"])
         if out and L.os.environ.get("TELEGRAM_BOT_TOKEN"):
             it["tg_video"] = L.upload_video(out, P._admin_chat())
+            cv = cover(it)  # ролик изменился - обложка тоже собирается заново
+            if cv:
+                it["tg_cover"] = L.upload_photo(cv, P._admin_chat())
             P.save_queue(q)
         print(it["id"], "перерисован" if out else "пропущен", flush=True)
 

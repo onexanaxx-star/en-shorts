@@ -76,7 +76,10 @@ Return JSON: {{"lines": [...], "shots": [...], "hero": "Name", "hazard_line": n,
 
 PART1 = ("Line 1 is a second-person hook: 'If ... , do not ...' or similar, with a surprising rule. Then introduce the hero and a deadline. "
          "Teach the advice as 3 numbered steps through the hero's actions. The last 2 lines: 'It was the perfect plan. There was just one "
-         "problem.' style, then a dramatic unexpected twist that is NOT resolved (a new dilemma). End there.")
+         "problem.' style, then a dramatic unexpected twist that is NOT resolved (a new dilemma). End there. "
+         "The twist must come from the SAME danger and place and be solvable with the official advice listed above (e.g. wet clothes "
+         "and the cold, the night coming, the phone dying, an aftershock, the water rising). NEVER add animals, attackers or a second "
+         "unrelated disaster.")
 PART2 = ("Line 1 recaps the cliffhanger in one sentence ('Yesterday ...' is NOT allowed; say 'Part two.' then recap). Resolve the dilemma in a "
          "realistic way that follows the official advice (the hero does not do anything reckless; help arrives or a smart safe choice is made). "
          "Teach any advice not used in part 1. Last line: one memorable rule, then 'Follow for a new scenario tomorrow.'")
@@ -93,7 +96,7 @@ DIRECTOR = """You direct an animated infographic short (dark background, accent 
 Lines:
 {lines}
 For EACH line choose one animation. Use numbers ONLY if they appear in the lines. Types and JSON examples:
-counter {{"type":"counter","to":41000,"suffix":"","label":"FEET"}}; odometer {{"type":"odometer","to":1983,"label":"YEAR"}};
+counter {{"type":"counter","to":41000,"suffix":"","label":"FEET"}} (below zero: "to":30,"prefix":"-","suffix":"°C"); odometer {{"type":"odometer","to":1983,"label":"YEAR"}};
 ring {{"type":"ring","pct":45,"label":"FUEL ON BOARD","bad":true}}; calendar {{"type":"calendar","to":11,"label":"DAYS"}};
 gauge {{"type":"gauge","value":0.1,"label":"CHANCES","low":"LOW","high":"HIGH"}};
 title {{"type":"title","text":"2-5 WORDS","gold":true}}; typewriter {{"type":"typewriter","text":"2-5 WORDS"}};
@@ -169,9 +172,15 @@ def common_checks(d, wmin, wmax, allowed_text, small_ok=False):
     return p
 
 
+OFF_TOPIC = re.compile(r"\b(wol(f|ves)|bears?|sharks?|snakes?|cougars?|alligators?|crocodiles?|animals?|predators?|attackers?|robbers?|thie(f|ves)|monsters?|zombies?)\b", re.I)
+
+
 def surv_check(d, topic, part=1):
     p = common_checks(d, 205, 260, " ".join(topic["advice"]) + " " + topic["title"], small_ok=True)
     lines, shots = d.get("lines") or [], d.get("shots") or []
+    bad = {m.group(0).lower() for m in OFF_TOPIC.finditer(" ".join(lines) + " " + str(d.get("cliffhanger", "")) + " " + str(d.get("title", "")))}
+    if bad:  # 20.10.2026 ИИ выдумал стаю волков в сценарии про тонкий лёд - советов против волков в источниках нет
+        p.append(f"no animals/attackers/new disasters ({', '.join(sorted(bad))}): the twist must come from the same danger and be solved by the official advice")
     if len(shots) != len(lines):
         p.append(f"need exactly one shot per line ({len(lines)} lines, {len(shots)} shots)")
     for i, s in enumerate(shots):
@@ -363,6 +372,9 @@ def build_evening(state):
         return {**p, "scenes": sc}
 
     plan = state.get("draft_plan") or ask(DIRECTOR.format(lines="\n".join(f"{i + 1}. {l}" for i, l in enumerate(lines)), n=n), dcheck, repair=repair)
+    for sc in plan["scenes"]:  # мороз: в тексте «minus 30 C» - на экране должно быть -30°C, а не 30C
+        if sc.get("type") == "counter" and str(sc.get("suffix", "")).strip().upper() in ("C", "°C", "F", "°F") and re.search(rf"minus[^.]*{sc.get('to')}", " ".join(lines), re.I):
+            sc["prefix"], sc["suffix"] = "-", "°" + str(sc["suffix"]).strip().strip("°").upper()
     for sc in plan["scenes"]:  # слова при числе (METERS, PEOPLE) - в подпись, иначе огромная надпись вылезает за край
         suf = str(sc.get("suffix") or "")
         if sc.get("type") in ("counter", "odometer") and re.search("[A-Za-z]{2,}", suf):
@@ -549,6 +561,20 @@ def main():
         for tid in os.environ["EN_REDO"].split():
             redo(tid, q)
         return
+    # отложенная переделка серий (когда в день правки голос уже кончился): data/en_redo.json = ["thin_ice", ...]
+    rf = ROOT / "data" / "en_redo.json"
+    if rf.exists():
+        todo = json.loads(rf.read_text(encoding="utf-8"))
+        while todo:
+            try:
+                redo(todo[0], q)
+            except L.VoiceLimit as e:
+                print(" ", e, "- переделку закончу завтра")
+                return
+            todo.pop(0)
+            rf.write_text(json.dumps(todo), encoding="utf-8")
+        rf.unlink()
+        q = load_queue()
     one = sys.argv[sys.argv.index("--one") + 1] if "--one" in sys.argv else None
     built, failed = 0, set()
     while built < (1 if one else MAX_PER_RUN):

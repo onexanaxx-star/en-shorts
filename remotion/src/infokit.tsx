@@ -172,7 +172,9 @@ export const BigCounter: React.FC<{ to: number; prefix?: string; suffix?: string
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const pop = spring({ frame, fps, config: { damping: 22, stiffness: 120 } });
-  const n = Math.round(interpolate(frame, [0, 0.8 * fps], [0, to], { ...clamp, easing: Easing.out(Easing.cubic) }));
+  // дробные числа (0.01 мегапикселя) показываем с теми же знаками после точки, а не округляем до 0
+  const dec = Math.min(2, (String(to).split(".")[1] ?? "").length);
+  const n = interpolate(frame, [0, 0.8 * fps], [0, to], { ...clamp, easing: Easing.out(Easing.cubic) }).toFixed(dec);
   return (
     <AbsoluteFill style={{ top, alignItems: "center" }}>
       <div style={{ fontFamily: "Oswald", fontWeight: 700, fontSize: 300, lineHeight: 1, color, scale: interpolate(pop, [0, 1], [0.4, 1]), opacity: pop, textShadow: `0 10px 70px ${color}55` }}>
