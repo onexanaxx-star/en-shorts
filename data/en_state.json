@@ -1,28 +1,27 @@
 {
- "topic": 3,
+ "topic": 5,
  "part": 2,
- "story": 5,
+ "story": 11,
  "part1": {
   "lines": [
-   "If your car stalls in a freezing blizzard at night, do not leave the vehicle.",
-   "Mark needs to survive the freezing night on a dark highway while snow piles high.",
-   "Heavy snow falls fast around the car and blocks every single window completely now.",
-   "The freezing wind howls outside the metal walls as Mark sits trapped in the dark.",
-   "One. Stay right inside the car because it is your best shelter from death.",
-   "A car is much easier for the rescue crews to find than a single person.",
-   "Two. Clear all the snow from the exhaust pipe first before you start anything.",
-   "A blocked pipe fills the entire cabin with deadly carbon monoxide in just minutes.",
-   "Mark wipes the deep snow away from the back pipe with freezing bare hands.",
-   "Three. Run the engine for only 10 minutes each hour to keep warm inside.",
-   "Crack a window just a little bit so fresh air can flow inside safely.",
-   "Tie a bright cloth to the antenna so rescue teams spot the car easily.",
-   "Turn on the inside light at night so passing search crews can see you.",
-   "Mark finishes the safety steps and waits patiently for the morning rescue teams.",
-   "It was the correct survival plan for anyone trapped on a winter night.",
-   "There was just one unexpected problem waiting outside in the deep snowdrifts."
+   "If an earthquake hits your home at night, do not run outside into the dark.",
+   "The ground beneath Mark shakes violently, and the walls begin to groan and crack loudly.",
+   "Falling objects and debris near buildings cause most injuries during sudden structural movement events.",
+   "Mark stays completely away from windows, glass, and tall furniture that might fall.",
+   "One. Drop to your hands and knees immediately before the violent shaking knocks you down.",
+   "Two. Cover your head and neck securely under a sturdy wooden table right beside you.",
+   "Three. Hold on tightly to the furniture legs while the violent tremor shakes the house.",
+   "After the violent shaking stops completely, Mark must expect dangerous aftershocks very soon.",
+   "He carefully checks the air around him for any strong gas smell in the room.",
+   "He remembers to leave the building immediately if he smells leaking gas anywhere nearby.",
+   "The heavy tremors finally fade away, leaving a strange and heavy silence in the dark.",
+   "Mark stands up slowly and breathes out a long breath of pure relief tonight.",
+   "He checks his phone for any emergency alerts, but the screen stays completely dark.",
+   "It was the perfect survival plan executed with absolute calm and total precision.",
+   "There was just one unexpected problem waiting for him outside the front door."
   ],
-  "cliffhanger": "A massive snowplow approaches from behind without seeing the buried car.",
+  "cliffhanger": "The front door is completely jammed shut by fallen structural debris, trapping him inside.",
   "hero": "Mark",
-  "end": "inside"
+  "end": "door"
  }
 }
