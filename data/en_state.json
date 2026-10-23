@@ -1,27 +1,5 @@
 {
- "topic": 5,
- "part": 2,
- "story": 11,
- "part1": {
-  "lines": [
-   "If an earthquake hits your home at night, do not run outside into the dark.",
-   "The ground beneath Mark shakes violently, and the walls begin to groan and crack loudly.",
-   "Falling objects and debris near buildings cause most injuries during sudden structural movement events.",
-   "Mark stays completely away from windows, glass, and tall furniture that might fall.",
-   "One. Drop to your hands and knees immediately before the violent shaking knocks you down.",
-   "Two. Cover your head and neck securely under a sturdy wooden table right beside you.",
-   "Three. Hold on tightly to the furniture legs while the violent tremor shakes the house.",
-   "After the violent shaking stops completely, Mark must expect dangerous aftershocks very soon.",
-   "He carefully checks the air around him for any strong gas smell in the room.",
-   "He remembers to leave the building immediately if he smells leaking gas anywhere nearby.",
-   "The heavy tremors finally fade away, leaving a strange and heavy silence in the dark.",
-   "Mark stands up slowly and breathes out a long breath of pure relief tonight.",
-   "He checks his phone for any emergency alerts, but the screen stays completely dark.",
-   "It was the perfect survival plan executed with absolute calm and total precision.",
-   "There was just one unexpected problem waiting for him outside the front door."
-  ],
-  "cliffhanger": "The front door is completely jammed shut by fallen structural debris, trapping him inside.",
-  "hero": "Mark",
-  "end": "door"
- }
+ "topic": 6,
+ "part": 1,
+ "story": 11
 }
