@@ -1,5 +1,28 @@
 {
  "topic": 7,
- "part": 1,
- "story": 13
+ "part": 2,
+ "story": 14,
+ "part1": {
+  "lines": [
+   "If a tornado warning hits, do not stay in a car or a mobile home.",
+   "Sam sees dark spinning clouds above his house with 2 minutes before impact.",
+   "The roaring tornado slams into the sturdy building, shattering glass and outer walls.",
+   "Sam rushes downstairs and goes straight inside the underground basement shelter for safety.",
+   "One. Go to the basement, or an interior room on the lowest floor with no windows.",
+   "Sam secures himself in the dark basement as loud warning sirens blare outside.",
+   "Two. Put as many walls as possible between your body and the storm outside.",
+   "He retreats deeper into the corner, placing thick walls between himself and exterior doors.",
+   "Three. Cover your head and neck with your arms, a mattress or helmets.",
+   "Sam pulls a heavy mattress over his head and drops down into a crouch.",
+   "Cars and mobile homes are not safe, so hiding in this sturdy building protects him.",
+   "The entire home shakes violently while terrifying flying debris impacts the upper structure.",
+   "Heavy wind roars wildly above while the tornado passes directly over his safe position.",
+   "Sam follows every official safety rule to withstand this dangerous extreme weather disaster.",
+   "It was the perfect plan to survive the storm. There was just one problem.",
+   "An outer basement window shatters, blowing glass and roaring wind directly into his room."
+  ],
+  "cliffhanger": "An outer basement window shatters, blowing glass and wind into Sam's room and forcing him to quickly find an interior room with no windows.",
+  "hero": "Sam",
+  "end": "door"
+ }
 }
