@@ -1,28 +1,138 @@
 {
- "topic": 7,
- "part": 2,
+ "topic": 8,
+ "part": 1,
  "story": 14,
- "part1": {
+ "draft_evening": {
   "lines": [
-   "If a tornado warning hits, do not stay in a car or a mobile home.",
-   "Sam sees dark spinning clouds above his house with 2 minutes before impact.",
-   "The roaring tornado slams into the sturdy building, shattering glass and outer walls.",
-   "Sam rushes downstairs and goes straight inside the underground basement shelter for safety.",
-   "One. Go to the basement, or an interior room on the lowest floor with no windows.",
-   "Sam secures himself in the dark basement as loud warning sirens blare outside.",
-   "Two. Put as many walls as possible between your body and the storm outside.",
-   "He retreats deeper into the corner, placing thick walls between himself and exterior doors.",
-   "Three. Cover your head and neck with your arms, a mattress or helmets.",
-   "Sam pulls a heavy mattress over his head and drops down into a crouch.",
-   "Cars and mobile homes are not safe, so hiding in this sturdy building protects him.",
-   "The entire home shakes violently while terrifying flying debris impacts the upper structure.",
-   "Heavy wind roars wildly above while the tornado passes directly over his safe position.",
-   "Sam follows every official safety rule to withstand this dangerous extreme weather disaster.",
-   "It was the perfect plan to survive the storm. There was just one problem.",
-   "An outer basement window shatters, blowing glass and roaring wind directly into his room."
+   "Imagine falling from the sky through a violent storm and waking up alone in a deadly jungle.",
+   "On 24 December 1971 a passenger plane is struck by lightning and breaks apart midair.",
+   "Seventeen year old Juliane Koepcke falls about 3000 meters while still strapped to her seat row.",
+   "She wakes up on the dark forest floor with a broken collarbone and a deep arm cut.",
+   "She also suffers from a painful eye injury and a severe concussion after the terrifying plunge.",
+   "Her biologist father previously taught her that following flowing water always leads back to people.",
+   "She finds a tiny creek and begins walking through the dense and dangerous Peruvian rainforest.",
+   "Days pass slowly as she follows the winding water toward a larger and safer river.",
+   "Up to 14 other passengers survive the initial crash but tragically die before any rescue arrives.",
+   "She spends 11 long days completely alone in the unforgiving jungle facing unimaginable odds.",
+   "After 9 days of difficult travel she finally discovers a remote lumberjack camp by the river.",
+   "She is found by local workers who provide medical help and bring her back to safety.",
+   "Juliane remains the only official survivor of LANSA Flight 508 against all odds and expectations.",
+   "Would you have the mental strength to survive 11 days alone in the dangerous rainforest?"
   ],
-  "cliffhanger": "An outer basement window shatters, blowing glass and wind into Sam's room and forcing him to quickly find an interior room with no windows.",
-  "hero": "Sam",
-  "end": "door"
+  "title": "The Girl Who Fell 3000 Meters And Survived",
+  "description": "Seventeen year old Juliane Koepcke falls from the sky into the Peruvian rainforest and survives alone for 11 days.",
+  "hashtags": [
+   "#survival",
+   "#truehistory",
+   "#storytime",
+   "#documentary",
+   "#amazing"
+  ],
+  "mood": "tense"
+ },
+ "draft_plan": {
+  "scenes": [
+   {
+    "type": "wordstack",
+    "words": [
+     "VIOLENT STORM.",
+     "DEADLY JUNGLE.",
+     "ALONE."
+    ]
+   },
+   {
+    "type": "odometer",
+    "to": 1971,
+    "label": "YEAR"
+   },
+   {
+    "type": "counter",
+    "to": 3000,
+    "suffix": "M",
+    "label": "FALL DISTANCE"
+   },
+   {
+    "type": "checklist",
+    "title": "INJURIES",
+    "items": [
+     {
+      "text": "Broken collarbone",
+      "ok": false
+     },
+     {
+      "text": "Deep arm cut",
+      "ok": false
+     }
+    ]
+   },
+   {
+    "type": "bars",
+    "title": "ADDITIONAL TRAUMA",
+    "items": [
+     {
+      "label": "Eye injury",
+      "good": false
+     },
+     {
+      "label": "Severe concussion",
+      "good": false
+     }
+    ]
+   },
+   {
+    "type": "quote",
+    "text": "following flowing water always leads back to people",
+    "author": "BIOLOGIST FATHER"
+   },
+   {
+    "type": "marker",
+    "text": "She finds a tiny creek and begins walking",
+    "mark": "tiny creek"
+   },
+   {
+    "type": "steps",
+    "steps": [
+     "TINY CREEK",
+     "WINDING WATER",
+     "SAFER RIVER"
+    ]
+   },
+   {
+    "type": "counter",
+    "to": 14,
+    "label": "OTHER INITIAL SURVIVORS"
+   },
+   {
+    "type": "calendar",
+    "to": 11,
+    "label": "DAYS ALONE"
+   },
+   {
+    "type": "timeline",
+    "items": [
+     {
+      "year": "DAY 9",
+      "text": "Discovers lumberjack camp"
+     }
+    ]
+   },
+   {
+    "type": "stamp",
+    "text": "RESCUED"
+   },
+   {
+    "type": "title",
+    "text": "SOLE SURVIVOR",
+    "gold": true
+   },
+   {
+    "type": "gauge",
+    "value": 0.1,
+    "label": "YOUR CHANCES",
+    "low": "LOW",
+    "high": "HIGH"
+   }
+  ],
+  "bg": "dark misty rainforest canopy aerial shot"
  }
 }
