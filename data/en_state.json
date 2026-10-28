@@ -1,6 +1,6 @@
 {
  "topic": 8,
- "part": 1,
+ "part": 2,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,5 +134,27 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
+ },
+ "part1": {
+  "lines": [
+   "If your car breaks down in the desert heat, do not panic and start walking.",
+   "Mark needs to survive the brutal daytime temperatures before the sun goes down completely today.",
+   "The relentless heat strikes immediately, baking the empty landscape and threatening his life right now.",
+   "One. Stay with the broken car because a vehicle is much easier to spot than a person.",
+   "Mark raises the hood of the car to signal any passing rescue teams in the distance.",
+   "Two. Rest in the shade during the hottest hours of the day to avoid heatstroke.",
+   "Mark walks to the large rock for shelter and sits down out of the direct sun.",
+   "He uses a mirror to flash sunlight toward the horizon while keeping his phone safe.",
+   "Three. Drink the water you have when thirsty because rationing water while you overheat does not help.",
+   "He drinks from his bottle immediately because waiting makes dehydration much worse.",
+   "Mark waves his hands to signal again while staying safely near the protective rock shade.",
+   "He must wait for the evening to move because moving during the day is deadly.",
+   "The shade protects him from the worst of the daytime temperatures as hours pass slowly.",
+   "It was the perfect survival plan in the middle of the unforgiving desert.",
+   "There was just one problem when the phone screen suddenly flickered and died completely."
+  ],
+  "cliffhanger": "The phone battery dies completely right before he can call for help.",
+  "hero": "Mark",
+  "end": "door"
  }
 }
