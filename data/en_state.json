@@ -1,6 +1,6 @@
 {
- "topic": 9,
- "part": 2,
+ "topic": 10,
+ "part": 1,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,29 +134,5 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
- },
- "part1": {
-  "lines": [
-   "If an avalanche starts, do not run straight down the open mountain slope.",
-   "Mark stands under a rock overhang when the white snow slab suddenly cracks.",
-   "Fast snow surges down the steep slope and hits him with total force.",
-   "Mark knows trapped victims must be dug out within about 15 fast minutes.",
-   "He moves fast to follow 3 essential rules to survive the slide.",
-   "One. He tries to get off the slab to the side as it starts.",
-   "The sweeping wave knocks Mark down into a fast violent downhill tumble.",
-   "Two. He uses swimming motions and dumps his heavy pack to stay up.",
-   "Staying on the surface protects his body as the heavy snow slows down.",
-   "Three. He cups 1 arm in front of his face for air.",
-   "Mark crouches down low under the moving snow to protect his chest space.",
-   "He pushes 1 hand up toward the surface as the snow stops.",
-   "Mark waves his raised hand above the quiet snow to signal his spot.",
-   "Crucial rescue gear includes a beacon, a probe, and 1 sturdy digging shovel.",
-   "Digging a victim out takes fast effort with proper avalanche safety tools.",
-   "It was the perfect plan to survive being swept in a slide.",
-   "There was just 1 problem, his rescue beacon was completely turned off."
-  ],
-  "cliffhanger": "Mark executes all survival steps correctly, but discovers his emergency rescue beacon was left turned off inside his pocket.",
-  "hero": "Mark",
-  "end": "ground"
  }
 }
