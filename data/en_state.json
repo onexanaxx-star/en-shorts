@@ -1,6 +1,6 @@
 {
- "topic": 10,
- "part": 2,
+ "topic": 11,
+ "part": 1,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,28 +134,5 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
- },
- "part1": {
-  "lines": [
-   "If a fire alarm wakes you at night, do not stand up and run blindly through smoke.",
-   "Leo wakes up at 2 AM inside his home to a screeching smoke detector alarm above.",
-   "Thick black smoke fills his bedroom fast, leaving him under 60 seconds to make moves.",
-   "One. Get low and go right away because dangerous smoke always rises to the ceiling.",
-   "The cleanest air is near the floor, so Leo crouches low to breathe safely inside.",
-   "Two. Feel the door with the back of your hand before opening it to leave.",
-   "If the door is hot, do not open it, and use another way out fast.",
-   "Leo touches the wooden door with the back of his hand and feels cool surface.",
-   "Three. Close doors behind you as you move forward to slow down the fire spread.",
-   "Leo shuts the heavy bedroom door behind himself to block incoming heat and smoke.",
-   "He runs away out of the house into the cool night air to safety.",
-   "Official advice says get out, stay out, and call for help from outside always.",
-   "You must never go back inside a burning building for any reason at all.",
-   "Raging fire suddenly explodes through the roof, blasting heat across the entire front yard.",
-   "It was the perfect escape plan, but there was just one major problem remaining.",
-   "Leo needs to call for help, but his phone is still sitting inside."
-  ],
-  "cliffhanger": "Leo escaped the fire safely, but his phone is trapped inside and he must call for help without going back in.",
-  "hero": "Leo",
-  "end": "inside"
  }
 }
