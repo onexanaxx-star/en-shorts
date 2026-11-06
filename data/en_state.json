@@ -1,6 +1,6 @@
 {
- "topic": 12,
- "part": 2,
+ "topic": 13,
+ "part": 1,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,28 +134,5 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
- },
- "part1": {
-  "lines": [
-   "If lightning strikes on a mountain peak, do not seek shelter under a lone tree.",
-   "Jake is hiking above the tree line at dusk when dark clouds fill the sky.",
-   "He has less than 5 minutes before a deadly thunderstorm hits his open position.",
-   "A huge lightning bolt flashes nearby with a roaring crash of loud thunder.",
-   "When thunder roars, go indoors because no place outside is ever truly safe.",
-   "Only a sturdy building or a hard-top car offers real protection from lightning strikes.",
-   "One. Get off peaks and high ridges immediately and start heading down right away.",
-   "Jake starts to run away down the steep mountain slope, leaving the high peak.",
-   "Two. Never shelter under a lone tree or stand near dangerous metal fences.",
-   "Jake avoids a single pine tree and keeps moving quickly to lower ground.",
-   "Three. Spread a group out so 1 strike does not hit everyone at once.",
-   "Jake sees a solid rock overhang down the slope and moves toward it quickly.",
-   "He reaches the ledge and moves inside to enter shelter from the storm.",
-   "Jake did everything right to survive the sudden storm on the mountain peak.",
-   "It was the perfect plan, but there was just 1 big problem waiting inside.",
-   "Freezing rainwater floods the shelter while dusk fades into absolute darkness around Jake."
-  ],
-  "cliffhanger": "Freezing runoff water floods Jake's rock shelter just as total darkness sets in on the mountain.",
-  "hero": "Jake",
-  "end": "inside"
  }
 }
