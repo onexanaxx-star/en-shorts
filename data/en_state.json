@@ -1,6 +1,6 @@
 {
- "topic": 13,
- "part": 2,
+ "topic": 14,
+ "part": 1,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,28 +134,5 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
- },
- "part1": {
-  "lines": [
-   "If a hurricane approaches your beach, do not worry about howling wind first.",
-   "Water from storm surge causes most hurricane deaths, and Jake has 10 minutes left.",
-   "Panicked crowds scramble off the sand as dark dusk skies unleash ferocious breaking swells.",
-   "One. If officials say evacuate, go immediately because rising surge drowns entire coastal zones.",
-   "Jake remembers the golden rule to run from water and hide from wind.",
-   "He chooses to walk to shelter toward a massive 10-floor concrete hotel nearby.",
-   "Two. Leave dangerous surge zones fast and seek shelter inside a sturdy reinforced building.",
-   "Jake hurries across the empty lobby and moves upstairs away from the ground.",
-   "Three. Stay far away from exterior windows and lock yourself inside an interior room.",
-   "He enters an interior hallway room with thick walls and closes the heavy door.",
-   "Outside, the violent ocean surge slams onto the beach and swallows the lower floors.",
-   "Steel reinforced concrete holds firm against the punishing waves crashing below his high sanctuary.",
-   "Down below, exploding transformers illuminate the dark sky and power lines plunge into water.",
-   "He followed every single evacuation rule, securing himself safely above the raging ocean flood.",
-   "It was the perfect plan, but there was suddenly just one terrifying new problem.",
-   "Black water begins gushing through the hallway floor vents as live electrical wires spark."
-  ],
-  "cliffhanger": "Surge water is flooding up into Jake's safe interior hallway while downed, sparking electrical power lines threaten to electrify the water.",
-  "hero": "Jake",
-  "end": "inside"
  }
 }
