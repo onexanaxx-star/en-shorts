@@ -1,6 +1,6 @@
 {
- "topic": 14,
- "part": 2,
+ "topic": 15,
+ "part": 1,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,30 +134,5 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
- },
- "part1": {
-  "lines": [
-   "If you hear a tsunami siren on a dark beach, do not try to run away in your car.",
-   "Japan 2011 surveys show about a third of evacuees got stuck in traffic jams fast.",
-   "Mark stands on the sand at night when the sea suddenly pulls back far from the shore.",
-   "One. He sees the water vanish and knows a dangerous wave is coming right now.",
-   "Mark ignores his car and starts to walk to shelter on foot across the dark beach.",
-   "He walks fast past terrified people who panic in the coastal town tonight.",
-   "Two. He finds a strong reinforced concrete hotel that stands 10 floors high.",
-   "Mark enters the building and moves past the lobby without wasting any precious seconds.",
-   "Three. He runs up the stairs because he cannot go far from the shore safely.",
-   "He climbs higher and higher until he reaches the top of the safe structure.",
-   "He goes above the 4th floor to escape the coming dark water below.",
-   "Mark finishes his climb and reaches the roof before the ocean strikes the land.",
-   "Dark ocean water rushes violently across the beach and floods the empty streets completely.",
-   "The wave smashes into the lower levels of the concrete hotel with massive force.",
-   "Mark is safe from the water because he followed every single official safety rule.",
-   "It was the perfect plan for surviving the disaster.",
-   "There was just one problem.",
-   "The first wave is often not the biggest, and the freezing night air is turning into snow."
-  ],
-  "cliffhanger": "The first wave hit, but temperatures are plummeting and snow is starting to fall on the open roof.",
-  "hero": "Mark",
-  "end": "top"
  }
 }
