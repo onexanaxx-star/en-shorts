@@ -1,6 +1,6 @@
 {
  "topic": 15,
- "part": 1,
+ "part": 2,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,5 +134,27 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
+ },
+ "part1": {
+  "lines": [
+   "If you are lost in a dark forest at dusk, never hike toward a distant wooden cabin.",
+   "Cole is lost, and thick snow starts falling fast across the frozen woods around him now.",
+   "Night is coming in 20 minutes, but walking further will only make his danger much worse.",
+   "Searchers always start looking from your last known point, so Cole stays put near trees.",
+   "One. Cole stops moving immediately to follow the proven S.T.O.P. rule: Stop, Think, Observe, Plan.",
+   "He checks his cold surroundings and chooses a safe spot right next to a thick tree.",
+   "Two. Cole makes himself visible and audible in the open while staying near shelter.",
+   "He pulls out his bright orange jacket and crouches to remain clearly visible.",
+   "He blows 3 sharp whistle blasts into the cold air, the official signal for distress.",
+   "Three. Before total darkness arrives, Cole gets off the freezing cold ground without delay.",
+   "He gathers pine branches and dry leaves to build an insulating pad under his body.",
+   "He crouches tight against the wide tree trunk to shield himself from bitter wind.",
+   "Cole stays visible and waits quietly for the search and rescue team to locate him.",
+   "It was the perfect survival plan, but there was just one very serious problem.",
+   "The heavy snow is rapidly covering his bright jacket and hiding him from searchers."
+  ],
+  "cliffhanger": "Heavy snow is rapidly burying Cole's bright orange jacket and hiding his visual distress signal from rescuers.",
+  "hero": "Cole",
+  "end": "ground"
  }
 }
