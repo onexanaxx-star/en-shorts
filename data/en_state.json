@@ -1,6 +1,6 @@
 {
  "topic": 17,
- "part": 1,
+ "part": 2,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,5 +134,28 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
+ },
+ "part1": {
+  "lines": [
+   "If you get trapped in a blizzard on the highway, do not leave your vehicle behind.",
+   "Mark is stranded on a dark interstate as freezing whiteout conditions rapidly bury the road.",
+   "Subzero darkness surrounds him, and he must stay alive until morning road crews can arrive.",
+   "A violent wall of heavy snow slams into his windshield, killing visibility in every direction.",
+   "He decides to stay inside the car because it provides shelter against the lethal wind.",
+   "A vehicle is far easier for rescue crews to find than a person walking alone.",
+   "One. He steps outside quickly to clear thick snow from the car exhaust pipe first.",
+   "A blocked exhaust pipe can rapidly fill the cabin with deadly, invisible carbon monoxide gas.",
+   "Two. Mark ties a bright cloth to the car door so search teams spot it.",
+   "He also turns on the inside dome light so rescuers can see him through darkness.",
+   "Three. He runs the car engine for about 10 minutes each hour to get heat.",
+   "He cracks a side window open a little to let fresh outside air circulate through.",
+   "He settles into his seat, watching the clock tick down in the dark freezing cabin.",
+   "His signals are glowing bright and the interior warmth keeps him safe from the blizzard.",
+   "It was the perfect survival plan, but Mark suddenly notices a deadly problem forming outside.",
+   "Drifting snow has rapidly piled over the exhaust pipe again while his engine is running."
+  ],
+  "cliffhanger": "A heavy snowdrift has completely sealed the exhaust pipe again while the engine is running, risking carbon monoxide buildup inside the cabin.",
+  "hero": "Mark",
+  "end": "inside"
  }
 }
