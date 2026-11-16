@@ -157,5 +157,168 @@
   "cliffhanger": "A heavy snowdrift has completely sealed the exhaust pipe again while the engine is running, risking carbon monoxide buildup inside the cabin.",
   "hero": "Mark",
   "end": "inside"
+ },
+ "draft_morning": {
+  "lines": [
+   "Part 2. Heavy snow has completely buried Mark's exhaust pipe, threatening carbon monoxide buildup.",
+   "Mark immediately cuts the engine to stop toxic carbon monoxide gas from flooding inside.",
+   "He opens his door into the biting wind to inspect the rear bumper area.",
+   "One. He quickly pushes away the heavy packed snow clearing the exhaust pipe.",
+   "A blocked pipe fills the car cabin with invisible gas in a few minutes.",
+   "Two. He steps back inside the shelter and cracks the side window open a little.",
+   "Fresh outside air flows inside, keeping the atmosphere inside the car safe and clear.",
+   "Three. He runs the engine to get heat for about 10 minutes each hour.",
+   "Running the heater constantly wastes precious fuel while Mark waits for morning help.",
+   "He double checks that the bright cloth remains tied firmly outside on his door.",
+   "The bright cloth gives search teams a visible marker in the blinding white storm.",
+   "He keeps the interior dome light turned on so rescue crews spot him easily.",
+   "Leaving the car to walk through deep snow puts any driver in grave danger.",
+   "Staying inside the car provides shelter and keeps him much easier to locate.",
+   "Glowing headlights approach through darkness as snowplow operators finally reach his stranded vehicle.",
+   "Mark safe inside waves at the rescue team as they clear a path.",
+   "Always stay inside your car during a highway blizzard. Follow for a new scenario tomorrow."
+  ],
+  "shots": [
+   {
+    "focus": "shelter",
+    "zoom": "medium",
+    "tag": "EXHAUST BLOCKED",
+    "tagColor": "red",
+    "icon": "warning",
+    "iconText": "DANGER"
+   },
+   {
+    "focus": "hero",
+    "zoom": "close",
+    "hero": "look",
+    "icon": "key"
+   },
+   {
+    "focus": "hero",
+    "zoom": "medium",
+    "hero": "crouch"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "close",
+    "tag": "STEP 1",
+    "tagColor": "yellow",
+    "icon": "snow"
+   },
+   {
+    "focus": "hazard",
+    "zoom": "close",
+    "tag": "CO RISK",
+    "tagColor": "red",
+    "icon": "skull"
+   },
+   {
+    "focus": "hero",
+    "zoom": "close",
+    "tag": "STEP 2",
+    "tagColor": "yellow",
+    "hero": "look",
+    "icon": "door"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "medium"
+   },
+   {
+    "focus": "hero",
+    "zoom": "close",
+    "tag": "STEP 3",
+    "tagColor": "green",
+    "icon": "clock",
+    "iconText": "10 MINS"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "medium"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "medium",
+    "tag": "BRIGHT CLOTH",
+    "tagColor": "yellow"
+   },
+   {
+    "focus": "wide",
+    "zoom": "wide",
+    "icon": "car"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "medium",
+    "tag": "DOME LIGHT ON",
+    "tagColor": "green"
+   },
+   {
+    "focus": "hazard",
+    "zoom": "wide",
+    "icon": "snow"
+   },
+   {
+    "focus": "shelter",
+    "zoom": "wide",
+    "tag": "STAY IN CAR",
+    "tagColor": "green"
+   },
+   {
+    "focus": "wide",
+    "zoom": "wide"
+   },
+   {
+    "focus": "hero",
+    "zoom": "medium",
+    "hero": "wave",
+    "tag": "RESCUE ARRIVES",
+    "tagColor": "green",
+    "icon": "heart"
+   },
+   {
+    "focus": "hero",
+    "zoom": "medium",
+    "hero": "look"
+   }
+  ],
+  "hero": "Mark",
+  "hazard_line": 0,
+  "crowd_line": -1,
+  "timer": {
+   "label": "HEAT ENGINE",
+   "minutes": 10,
+   "startLine": 7,
+   "endLine": 8,
+   "after": "HEAT OFF"
+  },
+  "hot": {
+   "carbon monoxide": "red",
+   "exhaust pipe": "yellow",
+   "blizzard": "red",
+   "10 minutes": "yellow",
+   "shelter": "yellow",
+   "bright cloth": "yellow",
+   "dome light": "yellow"
+  },
+  "title": "Trapped in a Blizzard Part 2: How to Survive a Buried Car",
+  "description": "Mark faces a deadly exhaust pipe blockage during a night blizzard on the highway. Learn the life-saving steps to avoid carbon monoxide poison and get rescued safely.",
+  "hashtags": [
+   "#blizzard",
+   "#survivalskills",
+   "#carrescue",
+   "#winterdriving",
+   "#safetytips"
+  ],
+  "cover": {
+   "top": [
+    "CAR BURIED",
+    "IN BLIZZARD"
+   ],
+   "bottom": [
+    "WILL HE",
+    "SURVIVE?"
+   ]
+  }
  }
 }
