@@ -1,5 +1,5 @@
 {
- "topic": 17,
+ "topic": 18,
  "part": 2,
  "story": 14,
  "draft_evening": {
@@ -137,188 +137,25 @@
  },
  "part1": {
   "lines": [
-   "If you get trapped in a blizzard on the highway, do not leave your vehicle behind.",
-   "Mark is stranded on a dark interstate as freezing whiteout conditions rapidly bury the road.",
-   "Subzero darkness surrounds him, and he must stay alive until morning road crews can arrive.",
-   "A violent wall of heavy snow slams into his windshield, killing visibility in every direction.",
-   "He decides to stay inside the car because it provides shelter against the lethal wind.",
-   "A vehicle is far easier for rescue crews to find than a person walking alone.",
-   "One. He steps outside quickly to clear thick snow from the car exhaust pipe first.",
-   "A blocked exhaust pipe can rapidly fill the cabin with deadly, invisible carbon monoxide gas.",
-   "Two. Mark ties a bright cloth to the car door so search teams spot it.",
-   "He also turns on the inside dome light so rescuers can see him through darkness.",
-   "Three. He runs the car engine for about 10 minutes each hour to get heat.",
-   "He cracks a side window open a little to let fresh outside air circulate through.",
-   "He settles into his seat, watching the clock tick down in the dark freezing cabin.",
-   "His signals are glowing bright and the interior warmth keeps him safe from the blizzard.",
-   "It was the perfect survival plan, but Mark suddenly notices a deadly problem forming outside.",
-   "Drifting snow has rapidly piled over the exhaust pipe again while his engine is running."
+   "If you fall through lake ice, do not start swimming toward the nearest dry bank.",
+   "Mark steps onto the frozen lake, unaware he has only 10 minutes to save himself.",
+   "Suddenly, a loud crack echoes, and the freezing water swallows Mark under the dark ice.",
+   "Cold shock strikes immediately, leaving him just 1 minute to control his heavy, gasping breathing.",
+   "He remembers the 1-10-1 rule before cold water robs his body of all muscle control.",
+   "One. Turn back around toward the exact direction you just walked from right away.",
+   "That specific path of ice already proved it can hold your full body weight safely.",
+   "Two. Place your arms flat on the solid ice surface and kick your legs hard.",
+   "Get your body completely horizontal in the water, then pull your chest up onto ice.",
+   "Three. Do not stand up once your body climbs out onto the slippery surface.",
+   "Instead, Mark crouches low and rolls away from the hole to spread his body weight.",
+   "Rolling across the thin ice prevents a second break while keeping him out of water.",
+   "Mark begins crawling carefully toward the tree-lined shore to reach safety and warm shelter.",
+   "He follows every safety step correctly to escape the freezing lake in record time.",
+   "It was the perfect escape plan, but there was just one major problem remaining.",
+   "Wet clothes freeze instantly in subzero air, giving him 1 hour before hypothermia strikes."
   ],
-  "cliffhanger": "A heavy snowdrift has completely sealed the exhaust pipe again while the engine is running, risking carbon monoxide buildup inside the cabin.",
+  "cliffhanger": "Mark pulled himself out of the freezing water, but his wet clothes are freezing solid in subzero air.",
   "hero": "Mark",
-  "end": "inside"
- },
- "draft_morning": {
-  "lines": [
-   "Part 2. Heavy snow has completely buried Mark's exhaust pipe, threatening carbon monoxide buildup.",
-   "Mark immediately cuts the engine to stop toxic carbon monoxide gas from flooding inside.",
-   "He opens his door into the biting wind to inspect the rear bumper area.",
-   "One. He quickly pushes away the heavy packed snow clearing the exhaust pipe.",
-   "A blocked pipe fills the car cabin with invisible gas in a few minutes.",
-   "Two. He steps back inside the shelter and cracks the side window open a little.",
-   "Fresh outside air flows inside, keeping the atmosphere inside the car safe and clear.",
-   "Three. He runs the engine to get heat for about 10 minutes each hour.",
-   "Running the heater constantly wastes precious fuel while Mark waits for morning help.",
-   "He double checks that the bright cloth remains tied firmly outside on his door.",
-   "The bright cloth gives search teams a visible marker in the blinding white storm.",
-   "He keeps the interior dome light turned on so rescue crews spot him easily.",
-   "Leaving the car to walk through deep snow puts any driver in grave danger.",
-   "Staying inside the car provides shelter and keeps him much easier to locate.",
-   "Glowing headlights approach through darkness as snowplow operators finally reach his stranded vehicle.",
-   "Mark safe inside waves at the rescue team as they clear a path.",
-   "Always stay inside your car during a highway blizzard. Follow for a new scenario tomorrow."
-  ],
-  "shots": [
-   {
-    "focus": "shelter",
-    "zoom": "medium",
-    "tag": "EXHAUST BLOCKED",
-    "tagColor": "red",
-    "icon": "warning",
-    "iconText": "DANGER"
-   },
-   {
-    "focus": "hero",
-    "zoom": "close",
-    "hero": "look",
-    "icon": "key"
-   },
-   {
-    "focus": "hero",
-    "zoom": "medium",
-    "hero": "crouch"
-   },
-   {
-    "focus": "shelter",
-    "zoom": "close",
-    "tag": "STEP 1",
-    "tagColor": "yellow",
-    "icon": "snow"
-   },
-   {
-    "focus": "hazard",
-    "zoom": "close",
-    "tag": "CO RISK",
-    "tagColor": "red",
-    "icon": "skull"
-   },
-   {
-    "focus": "hero",
-    "zoom": "close",
-    "tag": "STEP 2",
-    "tagColor": "yellow",
-    "hero": "look",
-    "icon": "door"
-   },
-   {
-    "focus": "shelter",
-    "zoom": "medium"
-   },
-   {
-    "focus": "hero",
-    "zoom": "close",
-    "tag": "STEP 3",
-    "tagColor": "green",
-    "icon": "clock",
-    "iconText": "10 MINS"
-   },
-   {
-    "focus": "shelter",
-    "zoom": "medium"
-   },
-   {
-    "focus": "shelter",
-    "zoom": "medium",
-    "tag": "BRIGHT CLOTH",
-    "tagColor": "yellow"
-   },
-   {
-    "focus": "wide",
-    "zoom": "wide",
-    "icon": "car"
-   },
-   {
-    "focus": "shelter",
-    "zoom": "medium",
-    "tag": "DOME LIGHT ON",
-    "tagColor": "green"
-   },
-   {
-    "focus": "hazard",
-    "zoom": "wide",
-    "icon": "snow"
-   },
-   {
-    "focus": "shelter",
-    "zoom": "wide",
-    "tag": "STAY IN CAR",
-    "tagColor": "green"
-   },
-   {
-    "focus": "wide",
-    "zoom": "wide"
-   },
-   {
-    "focus": "hero",
-    "zoom": "medium",
-    "hero": "wave",
-    "tag": "RESCUE ARRIVES",
-    "tagColor": "green",
-    "icon": "heart"
-   },
-   {
-    "focus": "hero",
-    "zoom": "medium",
-    "hero": "look"
-   }
-  ],
-  "hero": "Mark",
-  "hazard_line": 0,
-  "crowd_line": -1,
-  "timer": {
-   "label": "HEAT ENGINE",
-   "minutes": 10,
-   "startLine": 7,
-   "endLine": 8,
-   "after": "HEAT OFF"
-  },
-  "hot": {
-   "carbon monoxide": "red",
-   "exhaust pipe": "yellow",
-   "blizzard": "red",
-   "10 minutes": "yellow",
-   "shelter": "yellow",
-   "bright cloth": "yellow",
-   "dome light": "yellow"
-  },
-  "title": "Trapped in a Blizzard Part 2: How to Survive a Buried Car",
-  "description": "Mark faces a deadly exhaust pipe blockage during a night blizzard on the highway. Learn the life-saving steps to avoid carbon monoxide poison and get rescued safely.",
-  "hashtags": [
-   "#blizzard",
-   "#survivalskills",
-   "#carrescue",
-   "#winterdriving",
-   "#safetytips"
-  ],
-  "cover": {
-   "top": [
-    "CAR BURIED",
-    "IN BLIZZARD"
-   ],
-   "bottom": [
-    "WILL HE",
-    "SURVIVE?"
-   ]
-  }
+  "end": "door"
  }
 }
