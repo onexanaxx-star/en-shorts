@@ -1,6 +1,6 @@
 {
- "topic": 18,
- "part": 2,
+ "topic": 19,
+ "part": 1,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,28 +134,5 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
- },
- "part1": {
-  "lines": [
-   "If you fall through lake ice, do not start swimming toward the nearest dry bank.",
-   "Mark steps onto the frozen lake, unaware he has only 10 minutes to save himself.",
-   "Suddenly, a loud crack echoes, and the freezing water swallows Mark under the dark ice.",
-   "Cold shock strikes immediately, leaving him just 1 minute to control his heavy, gasping breathing.",
-   "He remembers the 1-10-1 rule before cold water robs his body of all muscle control.",
-   "One. Turn back around toward the exact direction you just walked from right away.",
-   "That specific path of ice already proved it can hold your full body weight safely.",
-   "Two. Place your arms flat on the solid ice surface and kick your legs hard.",
-   "Get your body completely horizontal in the water, then pull your chest up onto ice.",
-   "Three. Do not stand up once your body climbs out onto the slippery surface.",
-   "Instead, Mark crouches low and rolls away from the hole to spread his body weight.",
-   "Rolling across the thin ice prevents a second break while keeping him out of water.",
-   "Mark begins crawling carefully toward the tree-lined shore to reach safety and warm shelter.",
-   "He follows every safety step correctly to escape the freezing lake in record time.",
-   "It was the perfect escape plan, but there was just one major problem remaining.",
-   "Wet clothes freeze instantly in subzero air, giving him 1 hour before hypothermia strikes."
-  ],
-  "cliffhanger": "Mark pulled himself out of the freezing water, but his wet clothes are freezing solid in subzero air.",
-  "hero": "Mark",
-  "end": "door"
  }
 }
