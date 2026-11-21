@@ -1,6 +1,6 @@
 {
  "topic": 20,
- "part": 1,
+ "part": 2,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,5 +134,29 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
+ },
+ "part1": {
+  "lines": [
+   "If a raging wildfire blocks your escape road at dusk, do not hide inside a wooden cabin.",
+   "Dan sees dark smoke filling the pine forest with only 10 minutes before flames cut off escape.",
+   "Safety experts urge everyone to leave early when told to evacuate because waiting is the most dangerous choice.",
+   "Dan must act fast on foot before the fiery blaze engulfs the entire mountain road tonight.",
+   "One.",
+   "Never run inside a small wooden cabin because dry logs burn extremely fast during wildfire conditions.",
+   "Two.",
+   "If you are stuck on foot, head immediately for ground with little fuel like a rocky area.",
+   "You can also target an open dirt road or ground that has already burned completely clear.",
+   "Three.",
+   "Dan runs away from the growing fire directly toward bare rocky ground with no dry trees.",
+   "He gets down low to the hard ground and crouches quietly to avoid the severe heat.",
+   "A massive wave of intense fire sweeps across the dense woods, incinerating the wooden cabin.",
+   "Dan made every right move on foot to stay alive while the heavy forest burned around him.",
+   "It was the perfect plan.",
+   "There was just one problem.",
+   "Dan reaches his car on the dirt trail just as falling sparks trap the vehicle completely."
+  ],
+  "cliffhanger": "Dan reaches his car on the trail just as severe fire traps the vehicle on all sides.",
+  "hero": "Dan",
+  "end": "ground"
  }
 }
