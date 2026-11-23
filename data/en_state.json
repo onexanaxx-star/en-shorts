@@ -1,6 +1,6 @@
 {
  "topic": 21,
- "part": 1,
+ "part": 2,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,5 +134,29 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
+ },
+ "part1": {
+  "lines": [
+   "If a siren sounds at dusk, do not look outside to watch the dark cloud.",
+   "Jack has 2 minutes before a violent tornado strikes his sturdy suburban home.",
+   "Roaring winds hit early, smashing glass and throwing heavy debris through the windows.",
+   "Jack knows mobile homes and cars are not safe, so he stays indoors.",
+   "One. Go to the basement, or an interior room on the lowest floor with no windows.",
+   "Jack quickly enters the basement shelter, moving far away from the shattered windows.",
+   "Two. Put as many walls as possible between you and the outside storm.",
+   "He steps into the center of the basement, surrounding himself with solid walls.",
+   "Three. Cover your head and neck with your arms, a mattress or helmets.",
+   "Jack grabs a heavy mattress and covers his head and neck completely.",
+   "He drops into a tight crouch position under the mattress while winds howl.",
+   "The severe tornado destroys the upper house, but Jack remains protected underground.",
+   "Following every official safety rule kept him alive through the destructive storm.",
+   "He executed the survival steps perfectly inside his home while disaster struck.",
+   "It was the perfect plan, but there was just one unexpected problem remaining.",
+   "The violent winds tear the basement door off, exposing his safe shelter.",
+   "Heavy falling beams start crashing into the basement right where Jack is crouching."
+  ],
+  "cliffhanger": "The basement door is torn off by the storm, causing structural ceiling beams to collapse right above Jack's crouched position.",
+  "hero": "Jack",
+  "end": "door"
  }
 }
