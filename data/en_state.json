@@ -1,6 +1,6 @@
 {
- "topic": 22,
- "part": 2,
+ "topic": 23,
+ "part": 1,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,28 +134,5 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
- },
- "part1": {
-  "lines": [
-   "If your car breaks down in the desert heat, do not try to walk for help.",
-   "Jake stands beside his smoking car as scorching desert air hits him at midday.",
-   "Extreme heat rises off dry sand, creating a deadly trap with zero shade nearby.",
-   "He has 1 main goal: survive until search teams spot him in this wasteland.",
-   "One. Stay directly with your vehicle because a car is much easier to spot.",
-   "Jake raises the hood to signal overhead planes and keeps his phone put away.",
-   "He keeps his phone saved for the exact moment he gets a cell signal.",
-   "Two. Rest in the shade during the hottest hours of the dry desert day.",
-   "Jake walks to shelter under a big rock to escape the direct scorching sun.",
-   "If he must move, he will only travel early morning or late evening.",
-   "Three. Drink your water when thirsty without saving every drop for much later.",
-   "Rationing water while you overheat in the extreme desert sun does not help.",
-   "Jake drinks his water, sits near shade, and uses a mirror to flash light.",
-   "He waves his arms high into the air, signaling clearly near his shaded spot.",
-   "It was the perfect plan, and Jake followed every rule to survive desert heat.",
-   "There was just one problem: the sun shifted, pushing all shade away into scorching heat."
-  ],
-  "cliffhanger": "The sun shifted in midday, leaving Jake exposed to direct extreme desert heat without shade.",
-  "hero": "Jake",
-  "end": "door"
  }
 }
