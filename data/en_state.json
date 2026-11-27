@@ -1,6 +1,6 @@
 {
  "topic": 23,
- "part": 1,
+ "part": 2,
  "story": 14,
  "draft_evening": {
   "lines": [
@@ -134,5 +134,28 @@
    }
   ],
   "bg": "dark misty rainforest canopy aerial shot"
+ },
+ "part1": {
+  "lines": [
+   "If an avalanche catches you on a slope, do not try to outrun the moving snow.",
+   "Jake has less than 15 minutes to survive when the mountain slope suddenly breaks apart.",
+   "A massive slab of heavy snow crashes down the peak, rushing straight toward his shelter.",
+   "One. Try to get off the sliding slab to the side as it starts moving.",
+   "Jake scrambles toward a rock overhang, but the fast white wave sweeps him away.",
+   "Two. If you are swept away, fight with swimming motions to stay on top.",
+   "He swims against the crushing current and dumps his heavy pack to avoid sinking down.",
+   "Three. As the snow slows, cup your arm in front of your face quickly.",
+   "Jake crouches down beneath the rock overhang and creates a crucial air pocket around his face.",
+   "He pushes one hand up toward the surface right as the debris comes to a stop.",
+   "Jake waves his bare hand through the top crust to show rescuers where he is buried.",
+   "Most buried people need to be dug out within about 15 minutes to stay alive.",
+   "Essential rescue gear like a beacon, probe, and shovel can save a life in time.",
+   "Jake secured his breathing space and marked his exact location for his waiting climbing partner.",
+   "It was the perfect plan for survival. There was just one major problem left.",
+   "The heavy snow is packing tight, and his partner has no shovel to dig him out."
+  ],
+  "cliffhanger": "Jake is buried under heavy snow with an air pocket, but his partner lacks a shovel to dig him out before his 15 minutes run out.",
+  "hero": "Jake",
+  "end": "ground"
  }
 }
